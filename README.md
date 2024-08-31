@@ -1,3 +1,4 @@
 # cs60
 Hosts our CS60 Assignments!
-The Main Branch is for Fall 2024.
+
+The main branch is for Fall 2024.
