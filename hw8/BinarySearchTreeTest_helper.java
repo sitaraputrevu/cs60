@@ -14,7 +14,7 @@ public class BinarySearchTreeTest_helper {
 	protected static BinarySearchTree<Integer, String> makeTree1() {
 		// ..... 42 .....
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
+		tree.put(Integer.valueOf(42), "Dodds");
 		return tree;
 	}
 
@@ -23,8 +23,8 @@ public class BinarySearchTreeTest_helper {
 		// ....... \ ....
 		// ........ 52 ..
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(52), "Colleen");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(52), "Colleen");
 		return tree;
 	}
 
@@ -33,8 +33,8 @@ public class BinarySearchTreeTest_helper {
 		// .... / .......
 		// .. 26 ........
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
 		return tree;
 	}
 
@@ -43,9 +43,9 @@ public class BinarySearchTreeTest_helper {
 		// .... /..\ ....
 		// .. 26 .. 52 ..
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
 		return tree;
 	}
 
@@ -56,10 +56,10 @@ public class BinarySearchTreeTest_helper {
 		// . / ..........
 		// 18 ...........
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
-		tree.put(new Integer(18), "Beth");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
+		tree.put(Integer.valueOf(18), "Beth");
 		return tree;
 	}
 
@@ -70,10 +70,10 @@ public class BinarySearchTreeTest_helper {
 		// .... \ .......
 		// ..... 30 .....
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
-		tree.put(new Integer(30), "Stone");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
+		tree.put(Integer.valueOf(30), "Stone");
 		return tree;
 	}
 
@@ -84,10 +84,10 @@ public class BinarySearchTreeTest_helper {
 		// ....... / ....
 		// ..... 45 .....
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
-		tree.put(new Integer(45), "Julie");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
+		tree.put(Integer.valueOf(45), "Julie");
 		return tree;
 	}
 
@@ -98,10 +98,10 @@ public class BinarySearchTreeTest_helper {
 		// .......... \ .
 		// ........... 60
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
-		tree.put(new Integer(60), "Ran");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
+		tree.put(Integer.valueOf(60), "Ran");
 		return tree;
 	}
 
@@ -112,13 +112,13 @@ public class BinarySearchTreeTest_helper {
 		// .. /..\../..\ ..
 		// ..18.30..45.60..
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(42), "Dodds");
-		tree.put(new Integer(26), "Ben");
-		tree.put(new Integer(52), "Colleen");
-		tree.put(new Integer(60), "Ran");
-		tree.put(new Integer(18), "Beth");
-		tree.put(new Integer(45), "Julie");
-		tree.put(new Integer(30), "Stone");
+		tree.put(Integer.valueOf(42), "Dodds");
+		tree.put(Integer.valueOf(26), "Ben");
+		tree.put(Integer.valueOf(52), "Colleen");
+		tree.put(Integer.valueOf(60), "Ran");
+		tree.put(Integer.valueOf(18), "Beth");
+		tree.put(Integer.valueOf(45), "Julie");
+		tree.put(Integer.valueOf(30), "Stone");
 		return tree;
 	}
 
@@ -131,10 +131,10 @@ public class BinarySearchTreeTest_helper {
 		// . / ...........
 		// .1 ............
 		BinarySearchTree<Integer, String> tree = new BinarySearchTree<Integer, String>();
-		tree.put(new Integer(4), "Dodds");
-		tree.put(new Integer(3), "Colleen");
-		tree.put(new Integer(2), "Beth");
-		tree.put(new Integer(1), "A Prof");
+		tree.put(Integer.valueOf(4), "Dodds");
+		tree.put(Integer.valueOf(3), "Colleen");
+		tree.put(Integer.valueOf(2), "Beth");
+		tree.put(Integer.valueOf(1), "A Prof");
 		return tree;
 	}
 

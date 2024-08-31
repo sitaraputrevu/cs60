@@ -221,11 +221,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree1_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree1();
-		assertEquals("Dodds", tree.get(new Integer(42)));
+		assertEquals("Dodds", tree.get(Integer.valueOf(42)));
 
 		// replace "Dodds" with "Beth" as the value for 42
-		assertEquals("Dodds", tree.put(new Integer(42), "Beth"));
-		assertEquals("Beth", tree.get(new Integer(42)));
+		assertEquals("Dodds", tree.put(Integer.valueOf(42), "Beth"));
+		assertEquals("Beth", tree.get(Integer.valueOf(42)));
 		assertFalse(tree.containsValue("Dodds"));
 		assertTrue(tree.containsValue("Beth"));
 	}
@@ -233,11 +233,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree2right_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree2right();
-		assertEquals("Colleen", tree.get(new Integer(52)));
+		assertEquals("Colleen", tree.get(Integer.valueOf(52)));
 
 		// replace "Colleen" with "Julie" as the value for 52
-		assertEquals("Colleen", tree.put(new Integer(52), "Julie"));
-		assertEquals("Julie", tree.get(new Integer(52)));
+		assertEquals("Colleen", tree.put(Integer.valueOf(52), "Julie"));
+		assertEquals("Julie", tree.get(Integer.valueOf(52)));
 		assertFalse(tree.containsValue("Colleen"));
 		assertTrue(tree.containsValue("Julie"));
 	}
@@ -245,11 +245,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree2left_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree2left();
-		assertEquals("Ben", tree.get(new Integer(26)));
+		assertEquals("Ben", tree.get(Integer.valueOf(26)));
 
 		// replace "Ben" with "Colleen" as the value for 26
-		assertEquals("Ben", tree.put(new Integer(26), "Colleen"));
-		assertEquals("Colleen", tree.get(new Integer(26)));
+		assertEquals("Ben", tree.put(Integer.valueOf(26), "Colleen"));
+		assertEquals("Colleen", tree.get(Integer.valueOf(26)));
 		assertFalse(tree.containsValue("Ben"));
 		assertTrue(tree.containsValue("Colleen"));
 	}
@@ -257,11 +257,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree3_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree3();
-		assertEquals("Ben", tree.get(new Integer(26)));
+		assertEquals("Ben", tree.get(Integer.valueOf(26)));
 
 		// replace "Ben" with "Colleen" as the value for 26
-		assertEquals("Ben", tree.put(new Integer(26), "Colleen"));
-		assertEquals("Colleen", tree.get(new Integer(26)));
+		assertEquals("Ben", tree.put(Integer.valueOf(26), "Colleen"));
+		assertEquals("Colleen", tree.get(Integer.valueOf(26)));
 		assertFalse(tree.containsValue("Ben"));
 		assertTrue(tree.containsValue("Colleen"));
 	}
@@ -269,11 +269,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree4a_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree4a();
-		assertEquals("Beth", tree.get(new Integer(18)));
+		assertEquals("Beth", tree.get(Integer.valueOf(18)));
 
 		// replace "Beth" with "Julie" as the value for 18
-		assertEquals("Beth", tree.put(new Integer(18), "Julie"));
-		assertEquals("Julie", tree.get(new Integer(18)));
+		assertEquals("Beth", tree.put(Integer.valueOf(18), "Julie"));
+		assertEquals("Julie", tree.get(Integer.valueOf(18)));
 		assertFalse(tree.containsValue("Beth"));
 		assertTrue(tree.containsValue("Julie"));
 	}
@@ -281,11 +281,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree4b_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree4b();
-		assertEquals("Stone", tree.get(new Integer(30)));
+		assertEquals("Stone", tree.get(Integer.valueOf(30)));
 
 		// replace "Stone" with "Beth" as the value for 30
-		assertEquals("Stone", tree.put(new Integer(30), "Beth"));
-		assertEquals("Beth", tree.get(new Integer(30)));
+		assertEquals("Stone", tree.put(Integer.valueOf(30), "Beth"));
+		assertEquals("Beth", tree.get(Integer.valueOf(30)));
 		assertFalse(tree.containsValue("Stone"));
 		assertTrue(tree.containsValue("Beth"));
 	}
@@ -293,11 +293,11 @@ public class BinarySearchTreeTest03_getAllKeysInOrder {
 	@Test
 	public void testPut_tree4c_replace() {
 		BinarySearchTree<Integer, String> tree = BinarySearchTreeTest_helper.makeTree4c();
-		assertEquals("Colleen", tree.get(new Integer(52)));
+		assertEquals("Colleen", tree.get(Integer.valueOf(52)));
 
 		// replace "Colleen" with "Julie" as the value for 52
-		assertEquals("Colleen", tree.put(new Integer(52), "Julie"));
-		assertEquals("Julie", tree.get(new Integer(52)));
+		assertEquals("Colleen", tree.put(Integer.valueOf(52), "Julie"));
+		assertEquals("Julie", tree.get(Integer.valueOf(52)));
 		assertFalse(tree.containsValue("Colleen"));
 		assertTrue(tree.containsValue("Julie"));
 	}
