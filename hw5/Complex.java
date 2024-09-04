@@ -30,7 +30,7 @@ public class Complex {
 	}
 
 	public double getImag() {
-		return this.imag;
+		return imag;
 	}
 
 	public void setImag(double imag) {
@@ -62,7 +62,7 @@ public class Complex {
 	 */
 	@Override
 	public String toString() {
-		return "Complex [real=" + this.real + ", imag=" + this.imag + "]";
+		return "Complex [real=" + real + ", imag=" + imag + "]";
 	}
 
 	/**
