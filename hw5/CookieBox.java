@@ -26,7 +26,7 @@ public class CookieBox {
 	 */
 	public CookieBox() {
 		// Start with no cookies :-(
-		this.allTheCookies = new Cookie[0];
+		allTheCookies = new Cookie[0];
 	}
 
 	/********************************
@@ -39,13 +39,13 @@ public class CookieBox {
 	 * @param cookie - The cookie to add
 	 */
 	public void addCookie(Cookie cookie) {
-		int numCookies = this.allTheCookies.length;
+		int numCookies = allTheCookies.length;
 		Cookie[] updatedCookies = new Cookie[numCookies + 1];
 		for (int index = 0; index < numCookies; index++) {
-			updatedCookies[index] = this.allTheCookies[index];
+			updatedCookies[index] = allTheCookies[index];
 		}
 		updatedCookies[numCookies] = cookie;
-		this.allTheCookies = updatedCookies;
+		allTheCookies = updatedCookies;
 	}
 
 	/**
@@ -55,9 +55,9 @@ public class CookieBox {
 	 */
 	public int totalCaloriesInBox() {
 		int totalCalories = 0;
-		int numCookies = this.allTheCookies.length;
+		int numCookies = allTheCookies.length;
 		for (int index = 0; index < numCookies; index++) {
-			totalCalories += this.allTheCookies[index].getCalories();
+			totalCalories += allTheCookies[index].getCalories();
 		}
 		return totalCalories;
 	}
