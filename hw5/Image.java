@@ -8,11 +8,11 @@ public class Image {
 	private int width;
 	
 	public Image(char[][] contents) {
-		this.image = contents;
+		image = contents;
 		
 		// always assume the array is at least of size 1x1
-		this.height = this.image.length;
-		this.width = this.image[0].length;
+		height = image.length;
+		width = image[0].length;
 	}
 	
     public Image rotateRight() {

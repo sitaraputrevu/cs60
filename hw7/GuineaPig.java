@@ -30,6 +30,6 @@ public class GuineaPig {
 	 * Returns the name of this guinea pig.
 	 */
 	public String getName() {
-		return this.name;
+		return name;
 	}
 }

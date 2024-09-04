@@ -51,38 +51,38 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 	public void init() {
 
 		// register w/the applet (i.e. parent) so it calls our keyPressed method
-		this.addKeyListener(this);
+		addKeyListener(this);
 
 		// set positions
-		this.setLayout(new BorderLayout());
+		setLayout(new BorderLayout());
 
 		// initialize controls
-		this.initializeButtons();
-		this.initializeMenu();
+		initializeButtons();
+		initializeMenu();
 
 		// set up the (off-screen) buffer for drawing, named image
-		this.image = this.createImage(this.getSize().width, Preferences.GAMEBOARDHEIGHT);
-		this.screen = this.image.getGraphics(); // screen holds the drawing routines
+		image = createImage(getSize().width, Preferences.GAMEBOARDHEIGHT);
+		screen = image.getGraphics(); // screen holds the drawing routines
 
 		// add a central panel which holds the buffer (the game board)
-		this.add(new SpampedeImagePanel(image), BorderLayout.CENTER);
+		add(new SpampedeImagePanel(image), BorderLayout.CENTER);
 
 		// example of loading images and audio
 		try {
-			URL url = this.getCodeBase();
-			this.audioSpam = this.getAudioClip(url, "Spam.au");
-			this.audioCrunch = this.getAudioClip(url, "crunch.au");
-			this.audioMeow = this.getAudioClip(url, "cat.au");
-			SpampedeDisplay.imageSpam = this.getImage(url, "spam.gif");
+			URL url = getCodeBase();
+			audioSpam = getAudioClip(url, "Spam.au");
+			audioCrunch = getAudioClip(url, "crunch.au");
+			audioMeow = getAudioClip(url, "cat.au");
+			SpampedeDisplay.imageSpam = getImage(url, "spam.gif");
 			System.out.println("successful loading of audio/images!");
 		} catch (Exception e) {
 			System.out.println("problem loading audio/images!");
-			this.audioSpam = null;
-			this.audioCrunch = null;
-			this.audioMeow = null;
+			audioSpam = null;
+			audioCrunch = null;
+			audioMeow = null;
 			SpampedeDisplay.imageSpam = null;
 		}
-		this.startNewGame(); // set up the game internals!
+		startNewGame(); // set up the game internals!
 		super.repaint(); // re-render the environment to the screen
 	}
 
@@ -93,22 +93,22 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 		// add a panel for buttons
 		JPanel buttonPane = new JPanel(new FlowLayout());
 		buttonPane.setBackground(Preferences.COLOR_BACKGROUND);
-		this.add(buttonPane, BorderLayout.PAGE_START);
+		add(buttonPane, BorderLayout.PAGE_START);
 
-		this.newGameButton = new JButton("New Game"); // the text in the button
-		this.newGameButton.addActionListener(this); // watch for button presses
-		this.newGameButton.addKeyListener(this); // listen for key presses here
-		buttonPane.add(this.newGameButton); // add button to the panel
+		newGameButton = new JButton("New Game"); // the text in the button
+		newGameButton.addActionListener(this); // watch for button presses
+		newGameButton.addKeyListener(this); // listen for key presses here
+		buttonPane.add(newGameButton); // add button to the panel
 
-		this.pauseButton = new JButton("Pause"); // a second button
-		this.pauseButton.addActionListener(this);
-		this.pauseButton.addKeyListener(this);
-		buttonPane.add(this.pauseButton);
+		pauseButton = new JButton("Pause"); // a second button
+		pauseButton.addActionListener(this);
+		pauseButton.addKeyListener(this);
+		buttonPane.add(pauseButton);
 
-		this.startButton = new JButton("Start"); // a third button
-		this.startButton.addActionListener(this);
-		this.startButton.addKeyListener(this);
-		buttonPane.add(this.startButton);
+		startButton = new JButton("Start"); // a third button
+		startButton.addActionListener(this);
+		startButton.addKeyListener(this);
+		buttonPane.add(startButton);
 	}
 
 	/**
@@ -117,26 +117,26 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 	private void initializeMenu() {
 		// set up the menu bar
 		JMenuBar menuBar = new JMenuBar();
-		this.setJMenuBar(menuBar);
+		setJMenuBar(menuBar);
 
 		// add a menu to contain items
-		this.gameMenu = new JMenu("Game"); // the menu name
+		gameMenu = new JMenu("Game"); // the menu name
 		menuBar.add(gameMenu); // add the menu to the menu bar
 
-		this.newGameItem = new JMenuItem("New Game"); // the text in the menu
-		this.newGameItem.addActionListener(this); // watch for button presses
-		this.newGameItem.addKeyListener(this); // listen for key presses here
-		this.gameMenu.add(this.newGameItem); // add the item to the menu
+		newGameItem = new JMenuItem("New Game"); // the text in the menu
+		newGameItem.addActionListener(this); // watch for button presses
+		newGameItem.addKeyListener(this); // listen for key presses here
+		gameMenu.add(newGameItem); // add the item to the menu
 
-		this.pauseItem = new JMenuItem("Pause"); // a second menu item
-		this.pauseItem.addActionListener(this);
-		this.pauseItem.addKeyListener(this);
-		this.gameMenu.add(this.pauseItem);
+		pauseItem = new JMenuItem("Pause"); // a second menu item
+		pauseItem.addActionListener(this);
+		pauseItem.addKeyListener(this);
+		gameMenu.add(pauseItem);
 
-		this.startItem = new JMenuItem("Start"); // a third menu item
-		this.startItem.addActionListener(this);
-		this.startItem.addKeyListener(this);
-		this.gameMenu.add(this.startItem);
+		startItem = new JMenuItem("Start"); // a third menu item
+		startItem.addActionListener(this);
+		startItem.addKeyListener(this);
+		gameMenu.add(startItem);
 	}
 	
 	/**
@@ -146,17 +146,17 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 	public void actionPerformed(ActionEvent evt) {
 		Object source = evt.getSource();
 
-		if (source == this.newGameButton || source == this.newGameItem) {
-			this.startNewGame();
-			this.go();
+		if (source == newGameButton || source == newGameItem) {
+			startNewGame();
+			go();
 		}
-		if (source == this.pauseButton || source == this.pauseItem) {
-			this.pause();
+		if (source == pauseButton || source == pauseItem) {
+			pause();
 		}
-		if (source == this.startButton || source == this.startItem) {
-			this.go();
+		if (source == startButton || source == startItem) {
+			go();
 		}
-		this.requestFocus(); // makes sure this applet keeps keyboard focus
+		requestFocus(); // makes sure this applet keeps keyboard focus
 	}
 
 	@Override
@@ -184,13 +184,13 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 	@Override
 	public void run() {
 		// calls the "cycle()" method every so often (every sleepTime milliseconds)
-		while (this.running) {
+		while (running) {
 			try {
-				if (this.thread != null) {
+				if (thread != null) {
 					Thread.sleep(Preferences.SLEEP_TIME);
 					synchronized (this) {
-						while (this.threadSuspended) {
-							this.wait(); // sleeps until notify() wakes it up
+						while (threadSuspended) {
+							wait(); // sleeps until notify() wakes it up
 						}
 					}
 				}
@@ -198,34 +198,34 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 				;
 			}
 
-			this.cycle(); // this represents 1 update cycle for the environment
+			cycle(); // this represents 1 update cycle for the environment
 		}
-		this.thread = null;
+		thread = null;
 	}
 
 	/**
 	 * Called when the "Start" button is pressed.
 	 */
 	public synchronized void go() {
-		if (this.thread == null) {
-			this.thread = new Thread(this);
-			this.running = true;
-			this.thread.start();
-			this.threadSuspended = false;
+		if (thread == null) {
+			thread = new Thread(this);
+			running = true;
+			thread.start();
+			threadSuspended = false;
 		} else {
-			this.threadSuspended = false;
+			threadSuspended = false;
 		}
-		this.notify(); // wakes up the call to wait(), above
+		notify(); // wakes up the call to wait(), above
 	}
 
 	/**
 	 * Called when the "Pause" button is pressed.
 	 */
 	void pause() {
-		if (this.thread == null) {
+		if (thread == null) {
 			;
 		} else {
-			this.threadSuspended = true;
+			threadSuspended = true;
 		}
 	}
 
@@ -234,8 +234,8 @@ public abstract class SpampedeBrainParent extends JApplet implements ActionListe
 	 * thread altogether.
 	 */
 	public synchronized void stop() {
-		this.running = false;
-		this.notify();
+		running = false;
+		notify();
 	}
 
 	/* ----------------------------------------------------------------- */

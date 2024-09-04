@@ -14,8 +14,8 @@ public class List<DataType extends Comparable<DataType>> {
 	 * Constructs an empty list
 	 */
 	public List() {
-		this.myHead = null;
-		this.mySize = 0;
+		myHead = null;
+		mySize = 0;
 	}
 
 	/**
@@ -27,8 +27,8 @@ public class List<DataType extends Comparable<DataType>> {
 		private ListNode myNext;
 
 		private ListNode(DataType element, ListNode next) {
-			this.myData = element;
-			this.myNext = next;
+			myData = element;
+			myNext = next;
 		}
 
 		private ListNode(DataType element) {
@@ -42,7 +42,7 @@ public class List<DataType extends Comparable<DataType>> {
 	 * @return the number of elements in this list
 	 */
 	public int length() {
-		return this.mySize;
+		return mySize;
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class List<DataType extends Comparable<DataType>> {
 	 * @return true if this collection contains no elements
 	 */
 	public boolean isEmpty() {
-		return this.length() == 0;
+		return length() == 0;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	public String toString() {
 		String result = "( ";
-		ListNode node = this.myHead;
+		ListNode node = myHead;
 		while (node != null) {
 			result = result + node.myData.toString() + " ";
 			node = node.myNext;
@@ -84,13 +84,13 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	public boolean contains(DataType o) {
 		if (o == null) {
-			for (ListNode node = this.myHead; node != null; node = node.myNext) {
+			for (ListNode node = myHead; node != null; node = node.myNext) {
 				if (node.myData == null) {
 					return true;
 				}
 			}
 		} else {
-			for (ListNode node = this.myHead; node != null; node = node.myNext) {
+			for (ListNode node = myHead; node != null; node = node.myNext) {
 				if (o.equals(node.myData)) {
 					return true;
 				}
@@ -112,13 +112,13 @@ public class List<DataType extends Comparable<DataType>> {
 		if (index < 0) {
 			throw new IndexOutOfBoundsException("Index to get must be at least 0.");
 		}
-		if (index >= this.length()) {
+		if (index >= length()) {
 			throw new IndexOutOfBoundsException("Index to get is too large.");
 		}
 
 		// iterate through the list and find the right node
 		int currentIndex = 0;
-		ListNode currentNode = this.myHead;
+		ListNode currentNode = myHead;
 		while (currentIndex != index) {
 			currentIndex++;
 			currentNode = currentNode.myNext;

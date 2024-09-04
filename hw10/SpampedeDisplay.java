@@ -50,22 +50,22 @@ class SpampedeDisplay {
 	 */
 	public void updateGraphics() {
 		// Draw the background -- DO NOT REMOVE!
-		this.clear();
+		clear();
 
 		// Draw the title
-		this.displayTitle();
+		displayTitle();
 
 		// Draw the board
 		// TODO: Add code to draw the board - use drawSquare (below) :)
 
 		// Display an image, just for fun
 		if (SpampedeDisplay.imageSpam != null) {
-			this.theScreen.drawImage(SpampedeDisplay.imageSpam, 200, 370, null);
+			theScreen.drawImage(SpampedeDisplay.imageSpam, 200, 370, null);
 		}
 
 		// Draw the game-over message, if appropriate
-		if (this.theData.getGameOver()) {
-			this.displayGameOver();
+		if (theData.getGameOver()) {
+			displayGameOver();
 		}
 
 	}
@@ -75,23 +75,23 @@ class SpampedeDisplay {
 	 * coordinates (i.e. x pixels to the right and y pixels below the upper-left
 	 * corner) on the display.
 	 * 
-	 * @param x         the x-coordinate, between 0 and this.width-1 inclusive
-	 * @param y         the y-coordinate, between 0 and this.height-1 inclusive
+	 * @param x         the x-coordinate, between 0 and width-1 inclusive
+	 * @param y         the y-coordinate, between 0 and height-1 inclusive
 	 * @param cellColor the color of the square being drawn
 	 */
 	private void drawSquare(int x, int y, Color cellColor) {
-		this.theScreen.setColor(cellColor);
-		this.theScreen.fillRect(x, y, Preferences.CELL_SIZE, Preferences.CELL_SIZE);
+		theScreen.setColor(cellColor);
+		theScreen.fillRect(x, y, Preferences.CELL_SIZE, Preferences.CELL_SIZE);
 	}
 
 	/**
 	 * Draws the background. DO NOT MODIFY!
 	 */
 	private void clear() {
-		this.theScreen.setColor(Preferences.COLOR_BACKGROUND);
-		this.theScreen.fillRect(0, 0, this.width, this.height);
-		this.theScreen.setColor(Preferences.TITLE_COLOR);
-		this.theScreen.drawRect(0, 0, this.width - 1, Preferences.GAMEBOARDHEIGHT - 1);
+		theScreen.setColor(Preferences.COLOR_BACKGROUND);
+		theScreen.fillRect(0, 0, width, height);
+		theScreen.setColor(Preferences.TITLE_COLOR);
+		theScreen.drawRect(0, 0, width - 1, Preferences.GAMEBOARDHEIGHT - 1);
 	}
 
 	/* ------------ */
@@ -102,18 +102,18 @@ class SpampedeDisplay {
 	 * Displays the title of the game.
 	 */
 	private void displayTitle() {
-		this.theScreen.setFont(Preferences.TITLE_FONT);
-		this.theScreen.setColor(Preferences.TITLE_COLOR);
-		this.theScreen.drawString(Preferences.TITLE, Preferences.TITLE_X, Preferences.TITLE_Y);
+		theScreen.setFont(Preferences.TITLE_FONT);
+		theScreen.setColor(Preferences.TITLE_COLOR);
+		theScreen.drawString(Preferences.TITLE, Preferences.TITLE_X, Preferences.TITLE_Y);
 	}
 
 	/**
 	 * Displays the game-over message.
 	 */
 	private void displayGameOver() {
-		this.theScreen.setFont(Preferences.GAME_OVER_FONT);
-		this.theScreen.setColor(Preferences.GAME_OVER_COLOR);
-		this.theScreen.drawString(Preferences.GAME_OVER_TEXT, Preferences.GAME_OVER_X, Preferences.GAME_OVER_Y);
+		theScreen.setFont(Preferences.GAME_OVER_FONT);
+		theScreen.setColor(Preferences.GAME_OVER_COLOR);
+		theScreen.drawString(Preferences.GAME_OVER_TEXT, Preferences.GAME_OVER_X, Preferences.GAME_OVER_Y);
 	}
 
 }

@@ -21,7 +21,7 @@ public class SpampedeImagePanel extends JPanel {
 	/** Constructs a new SpampedeImagePanel */
 	public SpampedeImagePanel(Image inputImage) {
 		// store the image
-		this.myImage = inputImage;
+		myImage = inputImage;
 
 		// calculate the dimensions of the panel
 		int height = inputImage.getHeight(null);
@@ -33,7 +33,7 @@ public class SpampedeImagePanel extends JPanel {
 	/** Draws the image on the panel */
 	@Override
 	public void paint(Graphics graphicsObj) {
-		graphicsObj.drawImage(this.myImage, 0, 0, null);
+		graphicsObj.drawImage(myImage, 0, 0, null);
 	}
 
 	/** Added to avoid a warning - not used! */

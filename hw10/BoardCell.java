@@ -40,9 +40,9 @@ class BoardCell {
 	 * @param type        the initial contents of this cell
 	 */
 	public BoardCell(int inputRow, int inputColumn, CellType type) {
-		this.row = inputRow;
-		this.column = inputColumn;
-		this.myCellType = type;
+		row = inputRow;
+		column = inputColumn;
+		myCellType = type;
 	}
 
 	/* ------------------------------------- */
@@ -51,50 +51,50 @@ class BoardCell {
 
 	/** Returns the row of this cell. */
 	public int getRow() {
-		return this.row;
+		return row;
 	}
 
 	/** Returns the column of this cell. */
 	public int getColumn() {
-		return this.column;
+		return column;
 	}
 
 	/** Returns true if this cell is a wall. */
 	public boolean isWall() {
-		return this.myCellType == CellType.WALL;
+		return myCellType == CellType.WALL;
 	}
 
 	/** Returns true if this cell is open (not a wall or a snake body part). */
 	public boolean isOpen() {
-		return this.myCellType == CellType.OPEN || this.isSpam();
+		return myCellType == CellType.OPEN || isSpam();
 	}
 
 	/** Returns true if this cell contains spam. */
 	public boolean isSpam() {
-		return this.myCellType == CellType.SPAM;
+		return myCellType == CellType.SPAM;
 	}
 
 	/** Returns true if this cell contains a snake body part (not the head). */
 	public boolean isBody() {
-		return this.myCellType == CellType.BODY;
+		return myCellType == CellType.BODY;
 	}
 
 	/** Returns true if this cell contains the head of the snake. */
 	public boolean isHead() {
-		return this.myCellType == CellType.HEAD;
+		return myCellType == CellType.HEAD;
 	}
 
 	/** Returns the color for drawing this cell. */
 	public Color getCellColor() {
-		if (this.isWall()) {
+		if (isWall()) {
 			return Preferences.COLOR_WALL;
-		} else if (this.isSpam()) {
+		} else if (isSpam()) {
 			return Preferences.COLOR_SPAM;
-		} else if (this.isOpen()) {
+		} else if (isOpen()) {
 			return Preferences.COLOR_OPEN;
-		} else if (this.isHead()) {
+		} else if (isHead()) {
 			return Preferences.COLOR_HEAD;
-		} else if (this.isBody()) {
+		} else if (isBody()) {
 			return Preferences.COLOR_BODY;
 		} else {
 			return Preferences.COLOR_OPEN;
@@ -107,22 +107,22 @@ class BoardCell {
 
 	/** Marks this BoardCell as spam. */
 	public void becomeSpam() {
-		this.myCellType = CellType.SPAM;
+		myCellType = CellType.SPAM;
 	}
 
 	/** Marks this BoardCell as open. */
 	public void becomeOpen() {
-		this.myCellType = CellType.OPEN;
+		myCellType = CellType.OPEN;
 	}
 
 	/** Marks this BoardCell as the snake's head. */
 	public void becomeHead() {
-		this.myCellType = CellType.HEAD;
+		myCellType = CellType.HEAD;
 	}
 
 	/** Marks this BoardCell as part of the snake's body. */
 	public void becomeBody() {
-		this.myCellType = CellType.BODY;
+		myCellType = CellType.BODY;
 	}
 
 	/* -------------------------- */
@@ -131,28 +131,28 @@ class BoardCell {
 
 	/** Marks this cell as having been added to our BFS search queue. */
 	public void setAddedToSearchList() {
-		this.addedToSearchList = true;
+		addedToSearchList = true;
 	}
 
 	/** Returns true if this cell has been added to our BFS search queue. */
 	public boolean inSearchListAlready() {
-		return this.addedToSearchList;
+		return addedToSearchList;
 	}
 
 	/** Clear the search-related info for this cell (to allow a new search). */
 	public void clear_RestartSearch() {
-		this.addedToSearchList = false;
-		this.parent = null;
+		addedToSearchList = false;
+		parent = null;
 	}
 
 	/** Sets the parent of this cell in our BFS search. */
 	public void setParent(BoardCell p) {
-		this.parent = p;
+		parent = p;
 	}
 
 	/** Returns the parent of this cell in our BFS search. */
 	public BoardCell getParent() {
-		return this.parent;
+		return parent;
 	}
 
 	/* ---------------------------- */
@@ -161,20 +161,20 @@ class BoardCell {
 
 	/** Returns this cell as a string "[row, col, type]". */
 	public String toString() {
-		return "[" + this.row + ", " + this.column + ", " + this.toStringType() + "]";
+		return "[" + row + ", " + column + ", " + toStringType() + "]";
 	}
 
 	/** Returns the contents of this cell, as a single character. */
 	public String toStringType() {
-		return this.myCellType.getDisplayChar();
+		return myCellType.getDisplayChar();
 	}
 
 	/** Returns the parent of this cell, as a string "[null]" or "[row, col]". */
 	public String toStringParent() {
-		if (this.parent == null) {
+		if (parent == null) {
 			return "[null]";
 		} else {
-			return "[" + this.parent.row + ", " + this.parent.column + "]";
+			return "[" + parent.row + ", " + parent.column + "]";
 		}
 	}
 

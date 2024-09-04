@@ -22,7 +22,7 @@ public class Point {
 	public final static double EPSILON = 0.000001;
 
 	public double getX() {
-		return this.x;
+		return x;
 	}
 
 	public void setX(double x) {
@@ -30,7 +30,7 @@ public class Point {
 	}
 
 	public double getY() {
-		return this.y;
+		return y;
 	}
 
 	public void setY(double y) {
@@ -67,7 +67,7 @@ public class Point {
 	 * @return true if the two Points represent the same location
 	 */
 	public boolean equals(Object obj) {
-		if (this.getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass()) {
 			return false; // different class? false!
 		}
 
@@ -87,7 +87,7 @@ public class Point {
 	 */
 	@Override
 	public String toString() {
-		return "Point [x=" + this.x + ", y=" + this.y + "]";
+		return "Point [x=" + x + ", y=" + y + "]";
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class Point {
 	 * @return The magnitude
 	 */
 	public double magnitude() {
-		return Math.sqrt(this.x * this.x + this.y * this.y);
+		return Math.sqrt(x * x + y * y);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class Point {
 	 * @return A new point object that is scaled from this point
 	 */
 	public Point scale(double factor) {
-		return new Point(factor * this.x, factor * this.y);
+		return new Point(factor * x, factor * y);
 	}
 
 	/**

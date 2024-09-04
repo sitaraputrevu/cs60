@@ -19,6 +19,6 @@ public class Instrument {
 	 * Returns the key of this instrument.
 	 */
 	public String getKey() {
-		return this.key;
+		return key;
 	}
 }

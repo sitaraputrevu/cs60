@@ -31,14 +31,14 @@ public class SpampedeBrain extends SpampedeBrainParent {
 
 	/** Starts a new game. */
 	public void startNewGame() {
-		this.theData = new SpampedeData();
-		this.theData.placeSnakeAtStartLocation();
-		this.theData.setStartDirection();
+		theData = new SpampedeData();
+		theData.placeSnakeAtStartLocation();
+		theData.setStartDirection();
 
-		this.theDisplay = new SpampedeDisplay(this.theData, this.screen, this.getSize().width, getSize().height);
-		this.theDisplay.updateGraphics();
+		theDisplay = new SpampedeDisplay(theData, screen, getSize().width, getSize().height);
+		theDisplay.updateGraphics();
 
-		this.playSound_spam();
+		playSound_spam();
 
 		/**
 		 * Hack because pictures have a delay in loading, and we do not redraw the
@@ -52,15 +52,15 @@ public class SpampedeBrain extends SpampedeBrainParent {
 		}
 		;
 
-		this.theDisplay.updateGraphics();
+		theDisplay.updateGraphics();
 	}
 
 	/** Declares the game over. */
 	public void gameOver() {
 		super.pause(); // pause the game
-		this.theData.setGameOver(); // tell the model that the game is over
-		if (this.audioMeow != null) {
-			this.audioMeow.play(); // play a sound
+		theData.setGameOver(); // tell the model that the game is over
+		if (audioMeow != null) {
+			audioMeow.play(); // play a sound
 		}
 	}
 
@@ -76,19 +76,19 @@ public class SpampedeBrain extends SpampedeBrainParent {
 	 */
 	public void cycle() {
 		// move the snake
-		this.updateSnake();
+		updateSnake();
 
 		// update the list of spam
-		this.updateSpam();
+		updateSpam();
 
 		// draw the board
-		this.theDisplay.updateGraphics();
+		theDisplay.updateGraphics();
 
 		// send the new drawing to the screen
-		this.repaint();
+		repaint();
 
 		// update the cycle counter
-		this.cycleNum++;
+		cycleNum++;
 	}
 
 	/**
@@ -106,10 +106,10 @@ public class SpampedeBrain extends SpampedeBrainParent {
 		switch (evt.getKeyChar()) { // get the char of the pressed key
 		// TODO: Add cases to handle other keys (set the direction!)
 		case PLAY_SPAM_NOISE:
-			this.playSound_spam();
+			playSound_spam();
 			break;
 		default:
-			this.theData.setDirectionEast();
+			theData.setDirectionEast();
 		}
 	}
 
@@ -122,14 +122,14 @@ public class SpampedeBrain extends SpampedeBrainParent {
 	 * <p>
 	 */
 	public void updateSnake() {
-		if (this.cycleNum % Preferences.REFRESH_RATE == 0) {
+		if (cycleNum % Preferences.REFRESH_RATE == 0) {
 			BoardCell nextCell;
-			if (this.theData.inAImode()) {
-				nextCell = this.theData.getNextCellFromBFS();
+			if (theData.inAImode()) {
+				nextCell = theData.getNextCellFromBFS();
 			} else {
-				nextCell = this.theData.getNextCellInDir();
+				nextCell = theData.getNextCellInDir();
 			}
-			this.advanceTheSnake(nextCell);
+			advanceTheSnake(nextCell);
 		}
 	}
 
@@ -143,26 +143,26 @@ public class SpampedeBrain extends SpampedeBrainParent {
 	private void advanceTheSnake(BoardCell nextCell) {
     // oops...we hit something
     if (nextCell.isWall() || nextCell.isBody()) {
-      this.gameOver();
+      gameOver();
       return;
     } 
     
     // the snake ate spam!
     if (nextCell.isSpam()) {
-      this.playSound_spamEaten();
+      playSound_spamEaten();
     } 
 
-    this.theData.moveSnakeForward(nextCell);
+    theData.moveSnakeForward(nextCell);
   }
 
 	/**
 	 * Adds more spam every SPAM_ADD_RATE cycles.
 	 */
 	void updateSpam() {
-		if (this.theData.noSpam()) {
-			this.theData.addSpam();
-		} else if (this.cycleNum % Preferences.SPAM_ADD_RATE == 0) {
-			this.theData.addSpam();
+		if (theData.noSpam()) {
+			theData.addSpam();
+		} else if (cycleNum % Preferences.SPAM_ADD_RATE == 0) {
+			theData.addSpam();
 		}
 	}
 
@@ -172,22 +172,22 @@ public class SpampedeBrain extends SpampedeBrainParent {
 
 	/** Plays crunch noise. */
 	public void playSound_spamEaten() {
-		if (this.audioCrunch != null) {
-			this.audioCrunch.play();
+		if (audioCrunch != null) {
+			audioCrunch.play();
 		}
 	}
 
 	/** Plays spam noise. */
 	public void playSound_spam() {
-		if (this.audioSpam != null) {
-			this.audioSpam.play();
+		if (audioSpam != null) {
+			audioSpam.play();
 		}
 	}
 
 	/** Plays meow noise. */
 	public void playSound_meow() {
-		if (this.audioMeow != null) {
-			this.audioMeow.play();
+		if (audioMeow != null) {
+			audioMeow.play();
 		}
 	}
 
@@ -205,14 +205,14 @@ public class SpampedeBrain extends SpampedeBrainParent {
 	}
 
 	public String testing_toStringParent() {
-		return this.theData.toStringParents();
+		return theData.toStringParents();
 	}
 
 	public BoardCell testing_getNextCellInDir() {
-		return this.theData.getNextCellInDir();
+		return theData.getNextCellInDir();
 	}
 
 	public String testing_toStringSpampedeData() {
-		return this.theData.toString();
+		return theData.toString();
 	}
 }

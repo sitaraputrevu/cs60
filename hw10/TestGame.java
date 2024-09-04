@@ -11,10 +11,10 @@ enum TestGame {
 	private boolean snakeAtStart;
 
 	private TestGame(boolean snakeAtStartInput) {
-		this.snakeAtStart = snakeAtStartInput;
+		snakeAtStart = snakeAtStartInput;
 	}
 
 	public boolean snakeAtStart() {
-		return this.snakeAtStart;
+		return snakeAtStart;
 	}
 }

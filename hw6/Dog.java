@@ -15,7 +15,7 @@ public class Dog implements Comparable<Dog> {
 	 * @param age The age
 	 */
 	public Dog(int age) {
-		this.myAge = age;
+		myAge = age;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class Dog implements Comparable<Dog> {
 	public boolean equals(Object obj) {
 		if (obj instanceof Dog) {
 			Dog otherDog = (Dog) obj;
-			return this.compareTo(otherDog) == 0;
+			return compareTo(otherDog) == 0;
 		}
 		return false;
 	}

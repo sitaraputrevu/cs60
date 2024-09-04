@@ -35,30 +35,30 @@ public class SuperFriendlyHochTable {
 		if (capacity < 0) {
 			throw new IllegalArgumentException("Tables must start with a capacity of 0 or more");
 		}
-		this.numChairs = capacity;
-		this.numPeople = 0;
-		this.people = new ArrayList<String>();
+		numChairs = capacity;
+		numPeople = 0;
+		people = new ArrayList<String>();
 	}
 
 	/**
 	 * Returns the number of chairs at this table.
 	 */
 	public int getNumChairs() {
-		return this.numChairs;
+		return numChairs;
 	}
 
 	/**
 	 * Returns the number of people at this table.
 	 */
 	public int getNumPeople() {
-		return this.numPeople;
+		return numPeople;
 	}
 
 	/**
 	 * Returns list of people at this table.
 	 */
 	public String getPeople() {
-		return this.people.toString();
+		return people.toString();
 	}
 
 	/**
@@ -76,22 +76,22 @@ public class SuperFriendlyHochTable {
 	 */
 	public String addPerson(String name) {
 		// add a chair if needed
-		if (this.numChairs == this.numPeople) {
-			this.numChairs++;
+		if (numChairs == numPeople) {
+			numChairs++;
 		}
 
 		// greet the person
 		String welcome = "";
-		if (this.emptySeat()) {
-			this.numPeople++;
-			this.people.add(name);
-			if (this.numPeople == 1) {
+		if (emptySeat()) {
+			numPeople++;
+			people.add(name);
+			if (numPeople == 1) {
 				welcome = "(Silence - no one is here to say hello.)";
 			} else {
 				welcome = "Welcome " + name + "!";
 			}
 		} else {
-			if (this.numPeople == 0) {
+			if (numPeople == 0) {
 				welcome = "(Silence - no one is here to say sorry.)";
 			} else {
 				welcome = "Sorry - there is no space for you " + name + ".";
@@ -99,8 +99,8 @@ public class SuperFriendlyHochTable {
 		}
 
 		String thanks = "";
-		if (this.numPeople > 1) {
-			String oldNames = this.people.subList(0, this.people.size() - 1).toString();
+		if (numPeople > 1) {
+			String oldNames = people.subList(0, people.size() - 1).toString();
 			oldNames = oldNames.substring(1, oldNames.length() - 1); // strip square brackets
 			thanks = "Thanks " + oldNames + "!!!!!";
 		}
@@ -119,16 +119,16 @@ public class SuperFriendlyHochTable {
 	 * @return a goodbye message
 	 */
 	public String removePerson(String name) {
-		boolean wasRemoved = this.people.remove(name);
+		boolean wasRemoved = people.remove(name);
 		if (!wasRemoved) {
 			return "Weird! " + name + " was not here!";
 		}
 
-		this.numPeople--;
-		if (this.numPeople == 0) {
+		numPeople--;
+		if (numPeople == 0) {
 			return "(Silence - no one is here to say goodbye.)";
 		}
-		String names = this.people.toString();
+		String names = people.toString();
 		names = names.substring(1, names.length() - 1); // strip square brackets
 		return "Bye " + name + ". " + "Bye " + names + ".";
 	}
@@ -140,13 +140,13 @@ public class SuperFriendlyHochTable {
 	 */
 	public String classStartingSoon() {
 		String message;
-		if (this.numPeople > 1) {
+		if (numPeople > 1) {
 			message = "Bye everyone!";
 		} else {
 			message = "(Silence - no one is here to say goodbye.)";
 		}
-		this.numPeople = 0;
-		this.people.clear();
+		numPeople = 0;
+		people.clear();
 		return message;
 	}
 }

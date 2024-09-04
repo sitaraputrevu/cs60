@@ -38,45 +38,45 @@ public class SnackTable {
 		if (capacity < 0) {
 			throw new IllegalArgumentException("Tables must start with a capacity of 0 or more");
 		}
-		this.numChairs = capacity;
-		this.numPeople = 0;
-		this.people = new ArrayList<String>();
-		this.numSnacks = 0;
+		numChairs = capacity;
+		numPeople = 0;
+		people = new ArrayList<String>();
+		numSnacks = 0;
 	}
 
 	/**
 	 * Returns the number of chairs at this table.
 	 */
 	public int getNumChairs() {
-		return this.numChairs;
+		return numChairs;
 	}
 
 	/**
 	 * Returns the number of people at this table.
 	 */
 	public int getNumPeople() {
-		return this.numPeople;
+		return numPeople;
 	}
 
 	/**
 	 * Returns list of people at this table.
 	 */
 	public String getPeople() {
-		return this.people.toString();
+		return people.toString();
 	}
 
 	/**
 	 * Returns the number of snacks at this table.
 	 */
 	public int getNumSnacks() {
-		return this.numSnacks;
+		return numSnacks;
 	}
 
 	/**
 	 * Returns true if there are fewer people than seats at this table.
 	 */
 	public boolean emptySeat() {
-		return this.numPeople < this.numChairs;
+		return numPeople < numChairs;
 	}
 
 	/**
@@ -86,15 +86,15 @@ public class SnackTable {
 	 * @return a welcome message
 	 */
 	public String addPerson(String name) {
-		if (this.emptySeat()) {
-			this.numPeople++;
-			this.people.add(name);
-			if (this.numPeople == 1) {
+		if (emptySeat()) {
+			numPeople++;
+			people.add(name);
+			if (numPeople == 1) {
 				return "(Silence - no one is here to say hello.)";
 			}
 			return "Welcome " + name + "!";
 		} else {
-			if (this.numPeople == 0) {
+			if (numPeople == 0) {
 				return "(Silence - no one is here to say sorry.)";
 			}
 			return "Sorry - there is no space for you " + name + ".";
@@ -108,13 +108,13 @@ public class SnackTable {
 	 * @return a goodbye message
 	 */
 	public String removePerson(String name) {
-		boolean wasRemoved = this.people.remove(name);
+		boolean wasRemoved = people.remove(name);
 		if (!wasRemoved) {
 			return "Weird! " + name + " was not here!";
 		}
 
-		this.numPeople--;
-		if (this.numPeople == 0) {
+		numPeople--;
+		if (numPeople == 0) {
 			return "(Silence - no one is here to say goodbye.)";
 		}
 		return "Bye " + name + ".";
@@ -124,7 +124,7 @@ public class SnackTable {
 	 * Adds snacks to this table.
 	 */
 	public void addSnacks() {
-		this.numSnacks += BAG_OF_SNACKS;
+		numSnacks += BAG_OF_SNACKS;
 	}
 
 	/**
@@ -135,19 +135,19 @@ public class SnackTable {
 	 * @return a welcome message
 	 */
 	public String addHungryPerson(String name) {
-		if (this.emptySeat() && this.numSnacks > 0) {
-			String welcome = this.addPerson(name);
+		if (emptySeat() && numSnacks > 0) {
+			String welcome = addPerson(name);
 			String eating = name + " says yummy!";
-			this.numSnacks--;
+			numSnacks--;
 			return welcome + " " + eating;
 		}
 
-		if (this.numPeople == 0) {
+		if (numPeople == 0) {
 			return "(Silence - no one is here to say sorry.)";
 		}
 
 		// either there were no empty seats or there was no snack
-		if (!this.emptySeat()) {
+		if (!emptySeat()) {
 			return "Sorry - there is no space for you " + name + ".";
 		}
 

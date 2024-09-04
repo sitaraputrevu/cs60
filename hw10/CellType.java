@@ -48,12 +48,12 @@ enum CellType {
 	private final String displayChar;
 
 	private CellType(String inputChar) {
-		this.displayChar = inputChar;
+		displayChar = inputChar;
 	}
 
 	/** Returns a String representing the CellType */
 	public String getDisplayChar() {
-		return this.displayChar;
+		return displayChar;
 	}
 
 }

@@ -18,7 +18,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * Constructs an empty binary search tree
 	 */
 	public BinarySearchTree() {
-		this.root = null;
+		root = null;
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * @return true if this collection contains no elements
 	 */
 	public boolean isEmpty() {
-		return this.root == null;
+		return root == null;
 	}
 
 	/**
@@ -73,8 +73,8 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	@Override
 	public int size() {
-		// TODO: revise size() to return the private instance variable this.size
-		return this.size(this.root);
+		// TODO: revise size() to return the private instance variable size
+		return size(root);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		if (root == null) {
 			return 0;
 		} else {
-			return 1 + this.size(root.left) + this.size(root.right);
+			return 1 + size(root.left) + size(root.right);
 		}
 	}
 
@@ -100,7 +100,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * @return the height of this tree
 	 */
 	public int height() {
-		return this.height(this.root);
+		return height(root);
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 			return -1;
 		}
 
-		int leftHeight = this.height(root.left);
-		int rightHeight = this.height(root.right);
+		int leftHeight = height(root.left);
+		int rightHeight = height(root.right);
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
 
@@ -124,7 +124,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	@Override
 	public boolean containsKey(Object key) {
-		return this.get(key) != null;
+		return get(key) != null;
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	public boolean containsValue(Object value) {
 		// search through all keys
 		// TODO: containsValue(object) requires getAllKeysInOrder() to be implemented
-		for (KeyType key : this.getAllKeysInOrder()) {
-			ValueType rootValue = this.get(key);
+		for (KeyType key : getAllKeysInOrder()) {
+			ValueType rootValue = get(key);
 			if (rootValue.equals(value)) {
 				return true;
 			}
@@ -149,7 +149,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@Override
 	@SuppressWarnings("unchecked")
 	public ValueType get(Object key) {
-		return this.get((KeyType) key, this.root);
+		return get((KeyType) key, root);
 	}
 
 	/**
@@ -174,12 +174,12 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		}
 
 		// key < rootKey: search the left subtree
-		if (this.inOrderKeys(key, rootKey)) {
-			return this.get(key, root.left);
+		if (inOrderKeys(key, rootKey)) {
+			return get(key, root.left);
 		}
 
 		// rootKey < key: search the right subtree
-		return this.get(key, root.right);
+		return get(key, root.right);
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	public KeyType getMinKey() {
 		// TODO: getMinKey() requires getMinKey(root) to be implemented
-		return this.getMinKey(this.root);
+		return getMinKey(root);
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	@Override
 	public void clear() {
-		this.root = null;
+		root = null;
 	}
 
 	/**
@@ -223,8 +223,8 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	@Override
 	public ValueType put(KeyType key, ValueType value) {
-		ValueType oldValue = this.get(key);
-		this.root = this.put(key, value, this.root);
+		ValueType oldValue = get(key);
+		root = put(key, value, root);
 		return oldValue;
 	}
 
@@ -252,13 +252,13 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		}
 
 		// key < rootKey: put in the left subtree
-		else if (this.inOrderKeys(key, rootKey)) {
-			root.left = this.put(key, value, root.left);
+		else if (inOrderKeys(key, rootKey)) {
+			root.left = put(key, value, root.left);
 		}
 
 		// rootKey < key: put in the right subtree
 		else {
-			root.right = this.put(key, value, root.right);
+			root.right = put(key, value, root.right);
 		}
 
 		return root;
@@ -271,7 +271,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	public void putAll(Map<? extends KeyType, ? extends ValueType> map) {
 		for (KeyType key : map.keySet()) {
 			ValueType value = map.get(key);
-			this.put(key, value);
+			put(key, value);
 		}
 	}
 
@@ -282,9 +282,9 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@SuppressWarnings("unchecked")
 	public ValueType remove(Object key) {
 		// TODO: remove(key) requires remove(key, root) to be implemented
-		ValueType value = this.get(key);
+		ValueType value = get(key);
 		if (value != null) { // only try to remove keys that are in the tree
-			this.root = this.remove((KeyType) key, this.root);
+			root = remove((KeyType) key, root);
 		}
 		return value;
 	}
@@ -310,7 +310,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * Prints an indented tree structure of this tree.
 	 */
 	public void printTreeStructure() {
-		printTreeStructure(this.root, 0);
+		printTreeStructure(root, 0);
 	}
 
 	/**
@@ -337,7 +337,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@Override
 	public String toString() {
 		// TODO: toString() requires addKeysToArrayList(keys, root) to be implemented
-		ArrayList<KeyType> allKeys = this.getAllKeysInOrder();
+		ArrayList<KeyType> allKeys = getAllKeysInOrder();
 		return allKeys.toString();
 	}
 
@@ -366,7 +366,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		// TODO: getAllKeysInOrder() requires addKeysToArrayList(keys, root) to be
 		// implemented
 		ArrayList<KeyType> keys = new ArrayList<KeyType>();
-		this.addKeysToArrayList(keys, this.root);
+		addKeysToArrayList(keys, root);
 		return keys;
 	}
 
