@@ -67,33 +67,33 @@ public class Cookie {
 	 */
 	public Cookie(String cookieType) {
 		Cookie.cookieCount++;
-		this.type = cookieType;
+		type = cookieType;
 		if (cookieType.equals("sugar")) {
-			this.ingredients = new String[4];
-			this.ingredients[0] = "butter";
-			this.ingredients[1] = "sugar";
-			this.ingredients[2] = "eggs";
-			this.ingredients[3] = "flour";
+			ingredients = new String[4];
+			ingredients[0] = "butter";
+			ingredients[1] = "sugar";
+			ingredients[2] = "eggs";
+			ingredients[3] = "flour";
 		} else if (cookieType.equals("chocolate chip")) {
-			this.ingredients = new String[5];
-			this.ingredients[0] = "chocolate chips";
-			this.ingredients[1] = "butter";
-			this.ingredients[2] = "sugar";
-			this.ingredients[3] = "eggs";
-			this.ingredients[4] = "flour";
+			ingredients = new String[5];
+			ingredients[0] = "chocolate chips";
+			ingredients[1] = "butter";
+			ingredients[2] = "sugar";
+			ingredients[3] = "eggs";
+			ingredients[4] = "flour";
 		} else if (cookieType.equals("gluten free")) {
-			this.ingredients = new String[4];
-			this.ingredients[0] = "eggs";
-			this.ingredients[1] = "sugar";
-			this.ingredients[2] = "peanut butter";
-			this.ingredients[3] = "chocolate chips";
+			ingredients = new String[4];
+			ingredients[0] = "eggs";
+			ingredients[1] = "sugar";
+			ingredients[2] = "peanut butter";
+			ingredients[3] = "chocolate chips";
 		} else {
-			this.ingredients = new String[5];
-			this.ingredients[0] = cookieType.concat("s");
-			this.ingredients[1] = "butter";
-			this.ingredients[2] = "sugar";
-			this.ingredients[3] = "eggs";
-			this.ingredients[4] = "flour";
+			ingredients = new String[5];
+			ingredients[0] = cookieType.concat("s");
+			ingredients[1] = "butter";
+			ingredients[2] = "sugar";
+			ingredients[3] = "eggs";
+			ingredients[4] = "flour";
 		}
 	}
 
@@ -102,7 +102,7 @@ public class Cookie {
 	 ********************************/
 
 	public String getType() {
-		return this.type;
+		return type;
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class Cookie {
 	 * @return The number of calories
 	 */
 	public int getCalories() {
-		return this.ingredients.length * 100;
+		return ingredients.length * 100;
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Cookie {
 	 * @return A string representation of the list of ingredients
 	 */
 	public String listIngredients() {
-	    return Arrays.toString(this.ingredients);
+	    return Arrays.toString(ingredients);
 	}
 
 	/**
@@ -131,13 +131,13 @@ public class Cookie {
 	 * @param newIngredient - The ingredient
 	 */
 	public void addIngredient(String newIngredient) {
-		int numIngredients = this.ingredients.length;
+		int numIngredients = ingredients.length;
 		String[] updatedIngredients = new String[numIngredients + 1];
 		for (int index = 0; index < numIngredients; index++) {
-			updatedIngredients[index] = this.ingredients[index];
+			updatedIngredients[index] = ingredients[index];
 		}
 		updatedIngredients[numIngredients] = newIngredient;
-		this.ingredients = updatedIngredients;
+		ingredients = updatedIngredients;
 	}
 
 	/********************************
