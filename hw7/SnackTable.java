@@ -124,7 +124,7 @@ public class SnackTable {
 	 * Adds snacks to this table.
 	 */
 	public void addSnacks() {
-		this.numSnacks += SnackTable.BAG_OF_SNACKS;
+		this.numSnacks += BAG_OF_SNACKS;
 	}
 
 	/**
