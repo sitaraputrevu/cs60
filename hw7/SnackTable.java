@@ -151,7 +151,7 @@ public class SnackTable {
 			return "Sorry - there is no space for you " + name + ".";
 		}
 
-		// no empty seat
+		// no snack
 		return "Sorry - there is no snack for you " + name + ".";
 	}
 }
