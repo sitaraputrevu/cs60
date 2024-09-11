@@ -44,5 +44,21 @@ public class Image {
     }
 
     public static void main (String [] args) {
+		System.out.println("CS60 Face");
+		Image face = new Image(smiley);
+		face.printImage();
+
+		System.out.println("\nUpside Down");
+		face = new Image(smiley).flipVertical();
+		face.printImage();
+
+		System.out.println("\nFlip Diagonal");
+		face = new Image(smiley).flipDiagonal();
+		face.printImage();
+
+		System.out.println("\nRotate Right");
+		face = new Image(smiley).rotateRight();
+		face.printImage();
     }
 }
+
