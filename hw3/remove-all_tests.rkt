@@ -1,7 +1,7 @@
 #lang racket
 
 (require rackunit)
-(require "hw2pr1_remove-all.rkt")
+(require "remove-all.rkt")
 
 
 ; student tests

@@ -1,7 +1,7 @@
 #lang racket
 
 (require rackunit)
-(require "hw3pr3_range.rkt")
+(require "range.rkt")
 
 
 ; provided definitions calling make-range-predicate

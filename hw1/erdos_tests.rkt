@@ -1,7 +1,7 @@
 #lang racket
 
 (require rackunit)              ; load the testing framework
-(require "hw1pr2_erdos.rkt")    ; load your definitions
+(require "erdos.rkt")    ; load your definitions
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,7 +1,7 @@
 #lang racket
 
 (require rackunit)
-(require "hw3pr4_lotto-winner.rkt")
+(require "lotto-winner.rkt")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

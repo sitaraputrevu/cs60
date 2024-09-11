@@ -1,7 +1,7 @@
 #lang racket
 
 (require rackunit)
-(require "hw3pr1_superreverse.rkt")
+(require "superreverse.rkt")
 
 
 ; student tests
