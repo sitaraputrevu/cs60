@@ -7,15 +7,15 @@ import java.util.NoSuchElementException;
  */
 public class List<DataType extends Comparable<DataType>> {
 
-	private ListNode myHead;
-	private int mySize;
+	private ListNode head;
+	private int size;
 
 	/**
 	 * Constructs an empty list
 	 */
 	public List() {
-		myHead = null;
-		mySize = 0;
+		head = null;
+		size = 0;
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class List<DataType extends Comparable<DataType>> {
 	 * @return the number of elements in this list
 	 */
 	public int length() {
-		return mySize;
+		return size;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	public String toString() {
 		String result = "( ";
-		ListNode node = myHead;
+		ListNode node = head;
 		while (node != null) {
 			result = result + node.myData.toString() + " ";
 			node = node.myNext;
@@ -84,13 +84,13 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	public boolean contains(DataType o) {
 		if (o == null) {
-			for (ListNode node = myHead; node != null; node = node.myNext) {
+			for (ListNode node = head; node != null; node = node.myNext) {
 				if (node.myData == null) {
 					return true;
 				}
 			}
 		} else {
-			for (ListNode node = myHead; node != null; node = node.myNext) {
+			for (ListNode node = head; node != null; node = node.myNext) {
 				if (o.equals(node.myData)) {
 					return true;
 				}
@@ -118,7 +118,7 @@ public class List<DataType extends Comparable<DataType>> {
 
 		// iterate through the list and find the right node
 		int currentIndex = 0;
-		ListNode currentNode = myHead;
+		ListNode currentNode = head;
 		while (currentIndex != index) {
 			currentIndex++;
 			currentNode = currentNode.myNext;
@@ -152,14 +152,14 @@ public class List<DataType extends Comparable<DataType>> {
 		@SuppressWarnings("unchecked")
 		List<DataType> other = (List<DataType>) obj;
 		// if the two lists are different sizes, they are not equal
-		if (this.mySize != other.mySize) {
+		if (this.size != other.size) {
 			return false;
 		}
 
 		// compare element by element
-		ListNode node1 = this.myHead;
-		ListNode node2 = other.myHead;
-		for (int i = 0; i < this.mySize; i++) {
+		ListNode node1 = this.head;
+		ListNode node2 = other.head;
+		for (int i = 0; i < this.size; i++) {
 			// get the two strings, so we can compare them
 			DataType s1 = node1.myData;
 			DataType s2 = node2.myData;
@@ -334,6 +334,6 @@ public class List<DataType extends Comparable<DataType>> {
 
 		// For example, you might start like this:
 		// List<Dog> myList = new List<Dog>();
-		// System.out.println(myList.myHead.myData);
+		// System.out.println(myList.head.myData);
 	}
 }
