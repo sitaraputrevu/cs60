@@ -23,16 +23,16 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	private class ListNode {
 
-		private DataType myData;
-		private ListNode myNext;
+		private DataType data;
+		private ListNode next;
 
-		private ListNode(DataType element, ListNode next) {
-			myData = element;
-			myNext = next;
+		private ListNode(DataType data, ListNode next) {
+			this.data = data;
+			this.next = next;
 		}
 
-		private ListNode(DataType element) {
-			this(element, null);
+		private ListNode(DataType data) {
+			this(data, null);
 		}
 	}
 
@@ -66,8 +66,8 @@ public class List<DataType extends Comparable<DataType>> {
 		String result = "( ";
 		ListNode node = head;
 		while (node != null) {
-			result = result + node.myData.toString() + " ";
-			node = node.myNext;
+			result = result + node.data.toString() + " ";
+			node = node.next;
 		}
 		return result + ")";
 	}
@@ -84,14 +84,14 @@ public class List<DataType extends Comparable<DataType>> {
 	 */
 	public boolean contains(DataType o) {
 		if (o == null) {
-			for (ListNode node = head; node != null; node = node.myNext) {
-				if (node.myData == null) {
+			for (ListNode node = head; node != null; node = node.next) {
+				if (node.data == null) {
 					return true;
 				}
 			}
 		} else {
-			for (ListNode node = head; node != null; node = node.myNext) {
-				if (o.equals(node.myData)) {
+			for (ListNode node = head; node != null; node = node.next) {
+				if (o.equals(node.data)) {
 					return true;
 				}
 			}
@@ -121,10 +121,10 @@ public class List<DataType extends Comparable<DataType>> {
 		ListNode currentNode = head;
 		while (currentIndex != index) {
 			currentIndex++;
-			currentNode = currentNode.myNext;
+			currentNode = currentNode.next;
 		}
 
-		return currentNode.myData;
+		return currentNode.data;
 	}
 
 	/**
@@ -152,22 +152,22 @@ public class List<DataType extends Comparable<DataType>> {
 		@SuppressWarnings("unchecked")
 		List<DataType> other = (List<DataType>) obj;
 		// if the two lists are different sizes, they are not equal
-		if (this.size != other.size) {
+		if (size != other.size) {
 			return false;
 		}
 
 		// compare element by element
-		ListNode node1 = this.head;
+		ListNode node1 = head;
 		ListNode node2 = other.head;
-		for (int i = 0; i < this.size; i++) {
+		for (int i = 0; i < size; i++) {
 			// get the two strings, so we can compare them
-			DataType s1 = node1.myData;
-			DataType s2 = node2.myData;
+			DataType s1 = node1.data;
+			DataType s2 = node2.data;
 			if (!s1.equals(s2)) {
 				return false;
 			}
-			node1 = node1.myNext; // walk down this list
-			node2 = node2.myNext; // walk down other list
+			node1 = node1.next; // walk down this list
+			node2 = node2.next; // walk down other list
 		}
 		return true;
 	}
@@ -334,6 +334,6 @@ public class List<DataType extends Comparable<DataType>> {
 
 		// For example, you might start like this:
 		// List<Dog> myList = new List<Dog>();
-		// System.out.println(myList.head.myData);
+		// System.out.println(myList.head.data);
 	}
 }

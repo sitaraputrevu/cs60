@@ -7,7 +7,7 @@ public class Dog implements Comparable<Dog> {
 	/**
 	 * The age
 	 */
-	int myAge;
+	int age;
 
 	/**
 	 * Constructs a dog with the specified age.
@@ -15,7 +15,7 @@ public class Dog implements Comparable<Dog> {
 	 * @param age The age
 	 */
 	public Dog(int age) {
-		myAge = age;
+		this.age = age;
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Dog implements Comparable<Dog> {
 	 * @return the difference between this dog's age and the other dog's age
 	 */
 	public int compareTo(Dog other) {
-		return this.myAge - other.myAge;
+		return age - other.age;
 	}
 
 	/**
