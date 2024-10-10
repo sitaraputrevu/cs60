@@ -45,32 +45,6 @@ public class ImageTest {
 	}
 	
 	@Test
-	public void flipHorizontal1() {
-		char[][] original = {{'1', '2'}, {'3', '4'}};
-		char[][] expected = {{'2', '1'}, {'4', '3'}};
-		
-		Image orig = new Image(original);
-		Image exp = new Image(expected);
-		
-		Image result = orig.flipHorizontal();
-		
-		assertTrue(exp.equals(result));
-	}
-	
-	@Test
-	public void flipHorizontal2() {
-		char[][] original = {{'1', '2', '3'}, {'4', '5', '6'}};
-		char[][] expected = {{'3', '2', '1'}, {'6', '5', '4'}};
-		
-		Image orig = new Image(original);
-		Image exp = new Image(expected);
-		
-		Image result = orig.flipHorizontal();
-		
-		assertTrue(exp.equals(result));
-	}
-	
-	@Test
 	public void flipVertical1() {
 		char[][] original = {{'1', '2'}, {'3', '4'}};
 		char[][] expected = {{'3', '4'}, {'1', '2'}};
@@ -109,16 +83,4 @@ public class ImageTest {
 		assertTrue(exp.equals(result));
 	}
 	
-	@Test
-	public void badDiagonal() {
-		char[][] original = {{'1', '2'}, {'3', '4'}};
-		char[][] expected = {{'4', '2'}, {'3', '1'}};
-		
-		Image orig = new Image(original);
-		Image exp = new Image(expected);
-		
-		Image result = orig.badDiagonal();
-		
-		assertTrue(exp.equals(result));
-	}
 }

@@ -6,6 +6,17 @@ public class Image {
 	private char[][] image;
 	private int height;
 	private int width;
+
+	static char[][] smiley = {
+		{' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', ' '},
+		{'*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+		{'*', ' ', ' ', '^', ' ', ' ', ' ', '^', ' ', ' ', '*'},
+		{'*', ' ', ' ', ' ', ' ', 'N', ' ', ' ', ' ', ' ', '*'},
+		{'*', ' ', '\\',' ', ' ', ' ', ' ', ' ', '/', ' ', '*'},
+		{'*', ' ', ' ', '-', '-', '-', '-', '-', ' ', ' ', '*'},
+		{'*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+		{' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', ' '}		
+	};
 	
 	public Image(char[][] contents) {
 		image = contents;
@@ -19,20 +30,12 @@ public class Image {
     	// TODO: write rotateRight
 	}
 
-    public Image flipHorizontal() {
-    	// TODO: write flipHorizontal
-    }
-
     public Image flipVertical() {
     	// TODO: write flipVertical
     }
 
     public Image flipDiagonal() {
     	// TODO: write flipDiagonal
-    }
-
-    public Image badDiagonal() {
-    	// TODO: write badDiagonal
     }
 
     public void printImage() {
