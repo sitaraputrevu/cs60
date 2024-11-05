@@ -13,10 +13,8 @@ class BoardCell {
 	/* Basic contents of a BoardCell */
 	/* ----------------------------- */
 
-	/** The row of this cell within the board (non-negative). */
-	private final int row;
-
-	/** The column of this cell within the board (non-negative). */
+	/** The row and column of this cell within the board (non-negative). */
+	private final int row; 
 	private final int column;
 
 	/** The current contents of this cell. */

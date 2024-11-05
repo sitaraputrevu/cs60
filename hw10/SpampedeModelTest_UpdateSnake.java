@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class SpampedeDataTest_UpdateSnake {
+public class SpampedeModelTest_UpdateSnake {
 
 	@Test
 	public void test_eatSpam() {
-	  SpampedeData data = new SpampedeData(TestGame.G1);
+	  SpampedeModel data = new SpampedeModel(TestGame.G1);
 	  data.moveSnakeForward(data.getNextCellInDir());
 	  String boardString = data.toString();
 		String correctBoardString = "******\n" + "*BBH *\n" + "*    *\n" + "*    *\n" + "*    *\n" + "******\n";
@@ -23,7 +23,7 @@ public class SpampedeDataTest_UpdateSnake {
 
 	@Test
 	public void test_noSpamEaten() {
-    SpampedeData data = new SpampedeData(TestGame.G2);
+    SpampedeModel data = new SpampedeModel(TestGame.G2);
     data.moveSnakeForward(data.getNextCellInDir());
     String boardString = data.toString();
 		String correctBoardString = "******\n" + "* BH *\n" + "* X  *\n" + "*    *\n" + "*    *\n" + "******\n";

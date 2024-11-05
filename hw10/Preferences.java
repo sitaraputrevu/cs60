@@ -26,6 +26,7 @@ final class Preferences {
 	public static final int CELL_SIZE = 10;
 	private static final int SPACE_FOR_BUTTONS = 190;
 	public static final int GAMEBOARDHEIGHT = NUM_CELLS_TALL * CELL_SIZE + SPACE_FOR_BUTTONS;
+	public static final int GAMEBOARDWIDTH = NUM_CELLS_WIDE * CELL_SIZE + 20;
 
 	/* ------ */
 	/* Colors */
@@ -44,7 +45,8 @@ final class Preferences {
 	public static final int TITLE_Y = 40;
 	public static final Font TITLE_FONT = new Font("Helvetica", Font.PLAIN, 30);
 	public static final Color TITLE_COLOR = Color.BLUE;
-	public static final String TITLE = "Spapmede"; // TODO: Update the title!
+	/* HW10 Part 1  */
+	public static final String TITLE = "Add Title for Part 1"; 
 
 	/* ------------------------ */
 	/* Text display - Game Over */

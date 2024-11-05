@@ -16,26 +16,25 @@ import java.awt.Graphics;
 public class SpampedeImagePanel extends JPanel {
 
 	/** The image that this panel draws */
-	Image myImage;
+	private Image image;
 
 	/** Constructs a new SpampedeImagePanel */
-	public SpampedeImagePanel(Image inputImage) {
+	public SpampedeImagePanel(Image image) {
 		// store the image
-		myImage = inputImage;
+		this.image = image;
 
 		// calculate the dimensions of the panel
-		int height = inputImage.getHeight(null);
-		int width = inputImage.getWidth(null);
+		int height = image.getHeight(null);
+		int width = image.getWidth(null);
 		Dimension dimensions = new java.awt.Dimension(width, height);
 		super.setPreferredSize(dimensions);
 	}
 
-	/** Draws the image on the panel */
+	/* Draws the image on the panel */
 	@Override
-	public void paint(Graphics graphicsObj) {
-		graphicsObj.drawImage(myImage, 0, 0, null);
-	}
-
-	/** Added to avoid a warning - not used! */
-	private static final long serialVersionUID = 1L;
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, this);		
+	} 
+	
 }

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class SpampedeDataTest_CheckParentsBFS {
+public class SpampedeModelTest_CheckParentsBFS {
 	/**
 	 * Pictures of test boards at http://tinyurl.com/spampedeTestBoards
 	 * 
@@ -12,12 +12,12 @@ public class SpampedeDataTest_CheckParentsBFS {
 	 * suggested in class, that is, the BFS runs until spam is dequeued, rather than
 	 * stopping as soon as it is enqueued. If you stop when spam is enqueued, most
 	 * or all of these tests will fail...and that is OK! You should try running
-	 * SpampedeBrainTest_CheckParentsBFS_fast instead.
+	 * SpampedeBTest_CheckParentsBFS_fast instead (no longer part of this hw).
 	 */
 
 	@Test
 	public void testG1_BFS() {
-	  SpampedeData myData = new SpampedeData(TestGame.G1);
+	  SpampedeModel myData = new SpampedeModel(TestGame.G1);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
 		String parentString = myData.toStringParents();
@@ -38,7 +38,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG2_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G2);
+    SpampedeModel myData = new SpampedeModel(TestGame.G2);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -59,7 +59,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG3_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G3);
+    SpampedeModel myData = new SpampedeModel(TestGame.G3);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -80,7 +80,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG4_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G4);
+    SpampedeModel myData = new SpampedeModel(TestGame.G4);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -101,7 +101,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG5_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G5);
+    SpampedeModel myData = new SpampedeModel(TestGame.G5);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -122,7 +122,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG6_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G6);
+    SpampedeModel myData = new SpampedeModel(TestGame.G6);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -143,7 +143,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG7_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G7);
+    SpampedeModel myData = new SpampedeModel(TestGame.G7);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -164,7 +164,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG8_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G8);
+    SpampedeModel myData = new SpampedeModel(TestGame.G8);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -185,7 +185,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG9_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G9);
+    SpampedeModel myData = new SpampedeModel(TestGame.G9);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -206,7 +206,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG10_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G10);
+    SpampedeModel myData = new SpampedeModel(TestGame.G10);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();
@@ -227,7 +227,7 @@ public class SpampedeDataTest_CheckParentsBFS {
 
 	@Test
 	public void testG11_BFS() {
-    SpampedeData myData = new SpampedeData(TestGame.G11);
+    SpampedeModel myData = new SpampedeModel(TestGame.G11);
     myData.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
     String parentString = myData.toStringParents();

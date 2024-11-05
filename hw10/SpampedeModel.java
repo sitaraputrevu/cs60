@@ -2,6 +2,7 @@ package com.gradescope.spampede;
 
 import java.awt.Color;
 import java.lang.Math;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -11,13 +12,23 @@ import java.util.Queue;
  * 
  * @author CS60 instructors
  */
-class SpampedeData {
+class SpampedeModel {
+	/**
+	 * The model needs to call the controller to play sounds and to end the game.
+	 */
+	private SpampedeController controller;
+	
+	/**
+	 * The model needs to call the controller to play sounds and to end the game.
+	 */
+
+	private SpampedeView view;
 	/**
 	 * The collection of all the BoardCells in the program, indexed by row and
 	 * column.
 	 * 
 	 * <p>
-	 * All BoardCells needed by the program are created by the SpampedeData
+	 * All BoardCells needed by the program are created by the SpampedeModel
 	 * constructor, so you do not need to create any new BoardCells in your code.
 	 * Instead, you will pass around (references to) existing cells, and change the
 	 * contents of some of these cells.
@@ -53,6 +64,9 @@ class SpampedeData {
 	 */
 	private boolean gameOver = false;
 
+	/** The number of animated frames displayed so far. */
+	private int cycleNum = 0;
+
 	/* -------------------------------------- */
 	/* Constructor and initialization methods */
 	/* -------------------------------------- */
@@ -60,7 +74,9 @@ class SpampedeData {
 	/**
 	 * Creates a new "board" with walls on the boundary and open in the interior.
 	 */
-	public SpampedeData() {
+	public SpampedeModel(SpampedeController controller, SpampedeView view) {
+		this.controller = controller;
+		this.view = view;
 		int height = Preferences.NUM_CELLS_TALL;
 		int width = Preferences.NUM_CELLS_WIDE;
 		boardCells2D = new BoardCell[height][width];
@@ -121,6 +137,96 @@ class SpampedeData {
 		body.becomeBody();
 	}
 
+	/* -------- */
+	/* Gameplay */
+	/* -------- */
+
+	/**
+	 * Moves the game forward one step.
+	 * 
+	 * One step is one frame of animation, which occurs every Preferences.SLEEP_TIME
+	 * milliseconds.
+	 */
+	public void cycle() {
+		// move the snake
+		updateSnake();
+
+		// update the list of spam
+		updateSpam();
+
+		// draw the board
+		view.updateGraphics();
+
+		// update the cycle counter
+		cycleNum++;
+	}
+
+	/* ---------------------- */
+	/* Snake movement methods */
+	/* ---------------------- */
+
+	/**
+	 * Moves the snake.
+	 * 
+	 * <p>
+	 * This method is called once every REFRESH_RATE cycles, either in the current
+	 * direction, or as directed by the AI's breadth-first search.
+	 * 
+	 * Called by cycle()
+	 * <p>
+	 */
+	private void updateSnake() {
+		if (cycleNum % Preferences.REFRESH_RATE == 0) {
+			BoardCell nextCell;
+			if (inAImode()) {
+				nextCell = getNextCellFromBFS();
+			} else {
+				nextCell = getNextCellInDir();
+			}
+			advanceTheSnake(nextCell);
+		}
+	}
+
+	/**
+	 * Moves the snake to the next cell (and possibly eat spam).
+	 * 
+	 * @param nextCell - the new location of the snake head (which must be
+	 *                 horizontally or vertically adjacent to the old location of
+	 *                 the snake head)
+	 */
+	private void advanceTheSnake(BoardCell nextCell) {
+		// Note - do not modify provided code.
+		if (nextCell.isWall() || nextCell.isBody()) {
+			// Oops...we hit something.
+			controller.gameOver();
+			return;
+		} else if (nextCell.isSpam()) {
+			// the snake ate spam!
+			controller.playSound_spamEaten();
+		} 
+		moveSnakeForward(nextCell);
+	}
+
+	/**
+	 * Moves the snake forward 
+	 * 
+	 */
+	 public void moveSnakeForward(BoardCell cell) { 
+		/* HW10 Part 3 */
+
+ 	}
+
+	/**
+	 * Adds more spam every SPAM_ADD_RATE cycles.
+	 */
+	private void updateSpam() {
+		if (noSpam()) {
+			addSpam();
+		} else if (cycleNum % Preferences.SPAM_ADD_RATE == 0) {
+			addSpam();
+		}
+	}
+
 	/* ---------------------------------------------- */
 	/* Methods to access information about this board */
 	/* ---------------------------------------------- */
@@ -128,7 +234,7 @@ class SpampedeData {
 	/**
 	 * Returns true if we are in AI mode.
 	 */
-	public boolean inAImode() {
+	private boolean inAImode() {
 		return currentMode == SnakeMode.AI_MODE;
 	}
 
@@ -151,8 +257,8 @@ class SpampedeData {
 	 * 
 	 * <p>
 	 * This method should really be private. We make it public to allow our unit
-	 * tests to use it, but it should not be called from SpampedeBrain or
-	 * SpampedeDisplay.
+	 * tests to use it, but it should not be called from SpampedeController or
+	 * SpampedeView.
 	 * </p>
 	 * 
 	 * @param r - the row to access, between 0 and numRows-1 inclusive
@@ -209,14 +315,14 @@ class SpampedeData {
 	/**
 	 * Returns true if there is zero spam.
 	 */
-	public boolean noSpam() {
+	private boolean noSpam() {
 		return spamCells.isEmpty();
 	}
 
 	/**
 	 * Adds spam to a random open spot.
 	 */
-	public void addSpam() {
+	private void addSpam() {
 		// Pick a random cell
 		int row = (int) (getNumRows() * Math.random());
 		int column = (int) (getNumColumns() * Math.random());
@@ -263,21 +369,21 @@ class SpampedeData {
 	/**
 	 * Returns the cell containing the snake's head.
 	 */
-	public BoardCell getSnakeHead() {
+	private BoardCell getSnakeHead() {
 		return snakeCells.peekLast();
 	}
 
 	/**
 	 * Returns the cell containing the snake's tail.
 	 */
-	public BoardCell getSnakeTail() {
+	private BoardCell getSnakeTail() {
 		return snakeCells.peekFirst();
 	}
 
 	/**
 	 * Returns the cell contains the snake body adjacent to the head.
 	 */
-	public BoardCell getSnakeNeck() {
+	private BoardCell getSnakeNeck() {
 		int lastSnakeCellIndex = snakeCells.size() - 1;
 		return snakeCells.get(lastSnakeCellIndex - 1);
 	}
@@ -328,29 +434,14 @@ class SpampedeData {
 		setDirectionEast();
 	}
 
-	/* ---------------------- */
-	/* Snake movement methods */
-	/* ---------------------- */
-	/**
-	 * Moves the snake's head to the given cell. 
-	 * If the cell is spam, the snake eats the spam and grows by one cell.
-	 * 
-	 * @param cell The next cell
-	 */
-	public void moveSnakeForward(BoardCell cell) {
-    // TODO: implement the method
-  }
-  
-	// TODO: You can add method(s) here to support the moveSnakeForward method
-
 	/* -------------------------------------- */
 	/* Methods to support movement without AI */
 	/* -------------------------------------- */
 
 	/**
 	 * These methods should really be private. We make them public to allow access
-	 * by our unit tests, but the methods should not be called from SpampedeBrain or
-	 * SpampedeDisplay.
+	 * by our unit tests, but the methods should not be called from SpampedeController or
+	 * SpampedeView.
 	 */
 
 	/**
@@ -358,7 +449,7 @@ class SpampedeData {
 	 * boundary.
 	 */
 	protected BoardCell getNorthNeighbor(BoardCell cell) {
-		return null; // TODO: Implement getNorthNeighbor(BoardCell)
+		/* HW10 Part 2 */
 	}
 
 	/**
@@ -366,7 +457,7 @@ class SpampedeData {
 	 * boundary.
 	 */
 	protected BoardCell getSouthNeighbor(BoardCell cell) {
-		return null; // TODO: Implement getSouthNeighbor(BoardCell)
+		/* HW 10 Part 2 */
 	}
 
 	/**
@@ -374,7 +465,7 @@ class SpampedeData {
 	 * boundary.
 	 */
 	protected BoardCell getEastNeighbor(BoardCell cell) {
-		return null; // TODO: Implement getEastNeighbor(BoardCell)
+		/* HW10 Part 2 */
 	}
 
 	/**
@@ -382,7 +473,7 @@ class SpampedeData {
 	 * boundary.
 	 */
 	protected BoardCell getWestNeighbor(BoardCell cell) {
-		return null; // TODO: Implement getWestNeighbor(BoardCell)
+		/* HW10 Part 2 */
 	}
 
 	/**
@@ -418,58 +509,10 @@ class SpampedeData {
 	 * current direction of travel. This method should not be called when in AI
 	 * mode, though Java requires the method to return a value regardless.
 	 */
-	public BoardCell getNextCellInDir() {
-		// Note: the current direction of travel can be found in currentMode
-		return null; // TODO: Implement getNextCellInDir()
+	protected BoardCell getNextCellInDir() {
+		/* HW10 Part 2 */
+		return null;
 	}
-	
-	/* -------------------------------------- */
-  /* Methods to support movement with AI */
-  /* -------------------------------------- */
-
-	 /**
-   * Searches for the spam closest to the snake head using BFS.
-   * 
-   * @return the cell to move the snake head to, if the snake moves *one step*
-   *         along the shortest path to (the nearest) spam cell
-   */
-  public BoardCell getNextCellFromBFS() {
-    // initialize the search
-    resetCellsForNextSearch();
-
-    // initialize the cellsToSearch queue with the snake head;
-    // as with any cell, we mark the head cells as having been added
-    // to the queue
-    Queue<BoardCell> cellsToSearch = new LinkedList<BoardCell>();
-    BoardCell snakeHead = getSnakeHead();
-    snakeHead.setAddedToSearchList();
-    cellsToSearch.add(snakeHead);
-
-    // search!
-    // TODO: Implement search (make sure you understand the code above first)
-
-    // Note: we encourage you to write the helper method
-    // getFirstCellInPath below to do the backtracking to calculate the next cell!
-
-    // if the search fails, just move somewhere
-    return getRandomNeighboringCell(snakeHead);
-  }
-
-  /**
-   * Follows the traceback pointers from the closest spam cell to decide where the
-   * head should move. Specifically, follows the parent pointers back from the
-   * spam until we find the cell whose parent is the snake head (and which must
-   * therefore be adjacent to the previous snake head location).
-   * 
-   * @param start - the cell from which to start following pointers, typically the
-   *              location of the spam closest to the snake head
-   * @return the cell to move the snake head to, which should be a neighbor of the
-   *         head
-   */
-  private BoardCell getFirstCellInPath(BoardCell start) {
-    // recursive or looping solutions are possible
-    return null; // TODO: Implement getFirstCellInPath(BoardCell)
-  }
 
 	/* -------------------------------------------------- */
 	/* Public methods to get all or one (random) neighbor */
@@ -478,7 +521,7 @@ class SpampedeData {
 	/**
 	 * Returns an array of the four neighbors of the specified cell.
 	 */
-	public BoardCell[] getNeighbors(BoardCell center) {
+	private BoardCell[] getNeighbors(BoardCell center) {
 		BoardCell[] neighborsArray = { getNorthNeighbor(center), getSouthNeighbor(center), getEastNeighbor(center),
 				getWestNeighbor(center) };
 		return neighborsArray;
@@ -488,7 +531,7 @@ class SpampedeData {
 	 * Returns a random open neighbor of the specified cell (or some other neighbor
 	 * if there are no open neighbors).
 	 */
-	public BoardCell getRandomNeighboringCell(BoardCell start) {
+	private BoardCell getRandomNeighboringCell(BoardCell start) {
 		BoardCell[] neighborsArray = getNeighbors(start);
 		for (BoardCell mc : neighborsArray) {
 			if (mc.isOpen()) {
@@ -503,21 +546,12 @@ class SpampedeData {
 	/* Helper method(s) for reverse */
 	/* ---------------------------- */
 
-	// TODO: Implement reverseSnake()
-	
 	/**
-   * Reverses the snake back-to-front and updates the movement mode appropriately.
-   */
-  public void reverseSnake() {
-    // Step 1: unlabel the head
-
-    // Step 2: reverse the body parts
-
-    // Step 3: relabel the head
-
-    // Step 4: calculate the new direction after reversing!
-
-  }
+	 * Reverses the snake.
+	 */
+	public void reverseSnake() {
+		/* HW10 Part 5 */
+	}
 
 	/* ------------------------------------- */
 	/* Methods to reset the model for search */
@@ -527,12 +561,57 @@ class SpampedeData {
 	 * Clears the search-related fields in all the cells, in preparation for a new
 	 * breadth-first search.
 	 */
-	public void resetCellsForNextSearch() {
+	private void resetCellsForNextSearch() {
 		for (BoardCell[] row : boardCells2D) {
 			for (BoardCell cell : row) {
 				cell.clear_RestartSearch();
 			}
 		}
+	}
+
+	/**
+	 * Searches for the spam closest to the snake head using BFS.
+	 * 
+	 * @return the cell to move the snake head to, if the snake moves *one step*
+	 *         along the shortest path to (the nearest) spam cell
+	 */
+	protected BoardCell getNextCellFromBFS() {
+		// initialize the search
+		resetCellsForNextSearch();
+
+		// initialize the cellsToSearch queue with the snake head;
+		// as with any cell, we mark the head cells as having been added
+		// to the queue
+		Queue<BoardCell> cellsToSearch = new LinkedList<BoardCell>();
+		BoardCell snakeHead = getSnakeHead();
+		snakeHead.setAddedToSearchList();
+		cellsToSearch.add(snakeHead);
+
+		// variable to hold the closest spam cell, once we have found it
+		// BoardCell closestSpamCell = null;
+
+		// search!
+		/* HW10 Part 6*/	
+		
+		// if the search fails, just move somewhere
+		return getRandomNeighboringCell(snakeHead);
+	}
+
+		/**
+	 * Follows the traceback pointers from the closest spam cell to decide where the
+	 * head should move. Specifically, follows the parent pointers back from the
+	 * spam until we find the cell whose parent is the snake head (and which must
+	 * therefore be adjacent to the previous snake head location).
+	 * 
+	 * @param start - the cell from which to start following pointers, typically the
+	 *              location of the spam closest to the snake head
+	 * @return the cell to move the snake head to, which should be a neighbor of the
+	 *         head
+	 */
+	private BoardCell getFirstCellInPath(BoardCell start) {
+		/* HW10 Part 6 */
+
+		
 	}
 
 	/* -------------------------------------------------------------------- */
@@ -544,7 +623,7 @@ class SpampedeData {
 	 */
 
 	// Constructor used exclusively for testing!
-	public SpampedeData(TestGame gameNum) {
+	public SpampedeModel(TestGame gameNum) {
 		boardCells2D = new BoardCell[6][6];
 		addWalls();
 		fillRemainingCells();
