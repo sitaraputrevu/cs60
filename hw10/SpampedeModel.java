@@ -19,10 +19,10 @@ class SpampedeModel {
 	private SpampedeController controller;
 	
 	/**
-	 * The model needs to call the controller to play sounds and to end the game.
+	 * The model needs to call the view to update graphics.
 	 */
-
 	private SpampedeView view;
+	
 	/**
 	 * The collection of all the BoardCells in the program, indexed by row and
 	 * column.
