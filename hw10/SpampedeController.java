@@ -44,10 +44,6 @@ public class SpampedeController extends JPanel implements ActionListener, KeyLis
 	 * Constructor for the controller
 	 */
 	public SpampedeController() {
-        // Register listeners
-        addKeyListener(this);
-        setFocusable(true);
-
         // Loading audio
         try {
 			File spamFile = new File("Spam.au").getAbsoluteFile();
