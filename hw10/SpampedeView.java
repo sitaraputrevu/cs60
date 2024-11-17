@@ -99,24 +99,21 @@ class SpampedeView {
 		// add a panel for buttons
 		JPanel buttonPane = new JPanel(new FlowLayout());
 		buttonPane.setBackground(Preferences.COLOR_BACKGROUND);
-		//add(buttonPane, BorderLayout.PAGE_START);
 
 		newGameButton = new JButton("New Game"); // the text in the button
 		newGameButton.addActionListener(controller); // watch for button presses
-		newGameButton.setActionCommand("New Game");
-		newGameButton.addKeyListener(controller); // listen for key presses here  *** what are all these listeners for?
+		newGameButton.setActionCommand("New Game"); // command to send when button is pressed
 		buttonPane.add(newGameButton); // add button to the panel
 
 		pauseButton = new JButton("Pause"); // a second button
 		pauseButton.addActionListener(controller);
 		pauseButton.setActionCommand("Pause");
-		//pauseButton.addKeyListener(controller);
 		buttonPane.add(pauseButton);
 
 		startButton = new JButton("Start"); // a third button
 		startButton.addActionListener(controller);
-		startButton.setActionCommand("Start"); // *** why needed?
-		startButton.addKeyListener(controller); // *** are these necessary
+		startButton.setActionCommand("Start");
+		startButton.addKeyListener(controller); // something needs a KeyListener
 		buttonPane.add(startButton);
 
 		frame.add(buttonPane);
@@ -128,7 +125,6 @@ class SpampedeView {
 	private void initializeMenu() {
 		// set up the menu bar
 		JMenuBar menuBar = new JMenuBar();
-		//add(menuBar);
 
 		// add a menu to contain items
 		gameMenu = new JMenu("Game"); // the menu name
@@ -137,19 +133,16 @@ class SpampedeView {
 		newGameItem = new JMenuItem("New Game"); // the text in the menu
 		newGameItem.addActionListener(controller); // watch for button presses
 		newGameItem.setActionCommand("New Game");
-		newGameItem.addKeyListener(controller); // listen for key presses here
 		gameMenu.add(newGameItem); // add the item to the menu
 
 		pauseItem = new JMenuItem("Pause"); // a second menu item
 		pauseItem.addActionListener(controller);
 		pauseItem.setActionCommand("Pause");
-		pauseItem.addKeyListener(controller);
 		gameMenu.add(pauseItem);
 
 		startItem = new JMenuItem("Start"); // a third menu item
 		startItem.addActionListener(controller);
 		startItem.setActionCommand("Start");
-		startItem.addKeyListener(controller);
 		gameMenu.add(startItem);
 
 		frame.add(menuBar, BorderLayout.PAGE_START);
