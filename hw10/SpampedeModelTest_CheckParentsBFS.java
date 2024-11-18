@@ -17,10 +17,10 @@ public class SpampedeModelTest_CheckParentsBFS {
 
 	@Test
 	public void testG1_BFS() {
-	  SpampedeModel myData = new SpampedeModel(TestGame.G1);
-    myData.getNextCellFromBFS();    
+	  SpampedeModel model = new SpampedeModel(TestGame.G1);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-		String parentString = myData.toStringParents();
+		String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[null]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[null]\t[null]\t\n"
@@ -32,16 +32,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG2_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G2);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G2);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[1, 2]\t[null]\t[null]\t[null]\t\n"
@@ -53,16 +53,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG3_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G3);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G3);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -74,16 +74,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 //		 System.out.println("Expected:");
 //		 System.out.println(correctParentString);
 //		 System.out.println("Actual:");
-//		 System.out.println(myData.toStringParents());
+//		 System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG4_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G4);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G4);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -95,16 +95,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG5_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G5);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G5);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -116,16 +116,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG6_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G6);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G6);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[null]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[null]\t[null]\t\n"
@@ -137,16 +137,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG7_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G7);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G7);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[1, 2]\t[null]\t[null]\t[null]\t\n"
@@ -158,16 +158,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG8_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G8);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G8);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -179,16 +179,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG9_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G9);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G9);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -200,16 +200,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG10_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G10);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G10);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -221,16 +221,16 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.print(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.print(myData.toStringParents());
+		// System.out.print(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 
 	@Test
 	public void testG11_BFS() {
-    SpampedeModel myData = new SpampedeModel(TestGame.G11);
-    myData.getNextCellFromBFS();    
+    SpampedeModel model = new SpampedeModel(TestGame.G11);
+    model.getNextCellFromBFS();    
     // not checking nextCell only checking parent content
-    String parentString = myData.toStringParents();
+    String parentString = model.toStringParents();
 		String correctParentString = "[null]\t[null]\t[null]\t[null]\t[null]\t[null]\t\n"
 				+ "[null]\t[null]\t[null]\t[1, 2]\t[1, 3]\t[null]\t\n"
 				+ "[null]\t[2, 2]\t[1, 2]\t[2, 2]\t[2, 3]\t[null]\t\n"
@@ -242,7 +242,7 @@ public class SpampedeModelTest_CheckParentsBFS {
 		// System.out.println("Expected:");
 		// System.out.println(correctParentString);
 		// System.out.println("Actual:");
-		// System.out.println(myData.toStringParents());
+		// System.out.println(model.toStringParents());
 		assertEquals(correctParentString, parentString);
 	}
 

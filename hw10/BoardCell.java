@@ -18,7 +18,7 @@ class BoardCell {
 	private final int column;
 
 	/** The current contents of this cell. */
-	private CellType myCellType;
+	private CellType type;
 
 	/* ---------------------------- */
 	/* Variables used during search */
@@ -33,14 +33,14 @@ class BoardCell {
 	/**
 	 * Creates a new BoardCell.
 	 * 
-	 * @param inputRow    the row of this cell
-	 * @param inputColumn the column of this cell
+	 * @param row         the row of this cell
+	 * @param column      the column of this cell
 	 * @param type        the initial contents of this cell
 	 */
-	public BoardCell(int inputRow, int inputColumn, CellType type) {
-		row = inputRow;
-		column = inputColumn;
-		myCellType = type;
+	public BoardCell(int row, int column, CellType type) {
+		this.row = row;
+		this.column = column;
+		this.type = type;
 	}
 
 	/* ------------------------------------- */
@@ -59,27 +59,27 @@ class BoardCell {
 
 	/** Returns true if this cell is a wall. */
 	public boolean isWall() {
-		return myCellType == CellType.WALL;
+		return type == CellType.WALL;
 	}
 
 	/** Returns true if this cell is open (not a wall or a snake body part). */
 	public boolean isOpen() {
-		return myCellType == CellType.OPEN || isSpam();
+		return type == CellType.OPEN || isSpam();
 	}
 
 	/** Returns true if this cell contains spam. */
 	public boolean isSpam() {
-		return myCellType == CellType.SPAM;
+		return type == CellType.SPAM;
 	}
 
 	/** Returns true if this cell contains a snake body part (not the head). */
 	public boolean isBody() {
-		return myCellType == CellType.BODY;
+		return type == CellType.BODY;
 	}
 
 	/** Returns true if this cell contains the head of the snake. */
 	public boolean isHead() {
-		return myCellType == CellType.HEAD;
+		return type == CellType.HEAD;
 	}
 
 	/** Returns the color for drawing this cell. */
@@ -105,22 +105,22 @@ class BoardCell {
 
 	/** Marks this BoardCell as spam. */
 	public void becomeSpam() {
-		myCellType = CellType.SPAM;
+		type = CellType.SPAM;
 	}
 
 	/** Marks this BoardCell as open. */
 	public void becomeOpen() {
-		myCellType = CellType.OPEN;
+		type = CellType.OPEN;
 	}
 
 	/** Marks this BoardCell as the snake's head. */
 	public void becomeHead() {
-		myCellType = CellType.HEAD;
+		type = CellType.HEAD;
 	}
 
 	/** Marks this BoardCell as part of the snake's body. */
 	public void becomeBody() {
-		myCellType = CellType.BODY;
+		type = CellType.BODY;
 	}
 
 	/* -------------------------- */
@@ -164,7 +164,7 @@ class BoardCell {
 
 	/** Returns the contents of this cell, as a single character. */
 	public String toStringType() {
-		return myCellType.getDisplayChar();
+		return type.getDisplayChar();
 	}
 
 	/** Returns the parent of this cell, as a string "[null]" or "[row, col]". */
