@@ -587,9 +587,6 @@ class SpampedeModel {
 		snakeHead.setAddedToSearchList();
 		cellsToSearch.add(snakeHead);
 
-		// variable to hold the closest spam cell, once we have found it
-		// BoardCell closestSpamCell = null;
-
 		// search!
 		/* HW10 Part 6*/	
 		
