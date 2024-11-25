@@ -26,7 +26,7 @@ final class Preferences {
 	public static final int CELL_SIZE = 10;
 	private static final int SPACE_FOR_BUTTONS = 190;
 	public static final int GAMEBOARDHEIGHT = NUM_CELLS_TALL * CELL_SIZE + SPACE_FOR_BUTTONS;
-	public static final int GAMEBOARDWIDTH = NUM_CELLS_WIDE * CELL_SIZE + 20;
+	public static final int GAMEBOARDWIDTH = NUM_CELLS_WIDE * CELL_SIZE + 80;
 
 	/* ------ */
 	/* Colors */

@@ -88,7 +88,7 @@ class SpampedeView {
         frame.add(panel, BorderLayout.SOUTH);
 
 		frame.pack();
-        frame.setSize(500, 600);
+        frame.setSize(Preferences.GAMEBOARDWIDTH, 600);
         frame.setVisible(true);
 	}
 

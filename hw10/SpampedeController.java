@@ -56,7 +56,7 @@ public class SpampedeController extends JPanel implements ActionListener, KeyLis
             audioCrunch = null;
         }
 
-		view = new SpampedeView(this, null,  500, 600);
+		view = new SpampedeView(this, null,  Preferences.GAMEBOARDWIDTH, 600);
         startNewGame(); // Set up the game internals!
     }
 
