@@ -103,6 +103,7 @@ class SpampedeView {
 		newGameButton = new JButton("New Game"); // the text in the button
 		newGameButton.addActionListener(controller); // watch for button presses
 		newGameButton.setActionCommand("New Game"); // command to send when button is pressed
+		newGameButton.setFocusable(false);
 		buttonPane.add(newGameButton); // add button to the panel
 
 		pauseButton = new JButton("Pause"); // a second button
