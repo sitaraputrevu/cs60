@@ -109,12 +109,13 @@ class SpampedeView {
 		pauseButton = new JButton("Pause"); // a second button
 		pauseButton.addActionListener(controller);
 		pauseButton.setActionCommand("Pause");
+		pauseButton.addKeyListener(controller);  // unclear why Java likes listener here but doesn't work with it on other buttons
 		buttonPane.add(pauseButton);
 
 		startButton = new JButton("Start"); // a third button
 		startButton.addActionListener(controller);
 		startButton.setActionCommand("Start");
-		startButton.addKeyListener(controller); // something needs a KeyListener
+		//startButton.addKeyListener(controller); // something needs a KeyListener
 		buttonPane.add(startButton);
 
 		frame.add(buttonPane);
