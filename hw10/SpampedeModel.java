@@ -450,6 +450,7 @@ class SpampedeModel {
 	 */
 	protected BoardCell getNorthNeighbor(BoardCell cell) {
 		/* HW10 Part 2 */
+		return null; // replace with the desired BoardCell
 	}
 
 	/**
@@ -458,6 +459,7 @@ class SpampedeModel {
 	 */
 	protected BoardCell getSouthNeighbor(BoardCell cell) {
 		/* HW 10 Part 2 */
+		return null; // replace with the desired BoardCell
 	}
 
 	/**
@@ -466,6 +468,7 @@ class SpampedeModel {
 	 */
 	protected BoardCell getEastNeighbor(BoardCell cell) {
 		/* HW10 Part 2 */
+		return null; // replace with the desired BoardCell
 	}
 
 	/**
@@ -474,6 +477,7 @@ class SpampedeModel {
 	 */
 	protected BoardCell getWestNeighbor(BoardCell cell) {
 		/* HW10 Part 2 */
+		return null; // replace with the desired BoardCell
 	}
 
 	/**
@@ -607,8 +611,8 @@ class SpampedeModel {
 	 */
 	private BoardCell getFirstCellInPath(BoardCell start) {
 		/* HW10 Part 6 */
+		return null; // replace with the desired BoardCell
 
-		
 	}
 
 	/* -------------------------------------------------------------------- */
