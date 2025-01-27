@@ -1,7 +1,7 @@
 # cs60
 Hosts our CS60 Assignments!
 
-The main branch is for Fall 2024.
+The main branch is for Spring 2025.
 
 The first time you work with an assignment from GitHub, you will need to install Git.
 https://git-scm.com/downloads
