@@ -6,6 +6,9 @@
 (define (fast-power base pow)
 )
 
+(provide power)
+(provide fast-power)
+
 ;; provided tests
 (check-equal? (power 2 10) 1024)
 (check-equal? (power 42 10) 17080198121677824)
