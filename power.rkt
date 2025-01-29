@@ -1,6 +1,11 @@
 #lang racket
 
+;; add comment
 (define (power base pow)
+  (if (= pow 0)
+    1
+    (* base (power base (- pow 1)))
+   )
 )
 
 (define (fast-power base pow)
