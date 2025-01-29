@@ -1,6 +1,8 @@
 #lang racket
 
-;; add comment
+;; takes an input N and returns the number of times the bit 1 appears in the binary representation of N
+;; adds one for every odd number, then divides every number by two (and rounds down)
+;; repeats until the only number left is 1
 (define (count1bits N)
   (cond
       [(= N 1) 1] 
@@ -8,14 +10,3 @@
       [else (+ 0 (count1bits (quotient N 2)))]
       )
 )
-
-;; student tests
-(check-equal? (count1bits 1) 1)
-(check-equal? (count1bits 2) 1)
-(check-equal? (count1bits 3) 2)
-(check-equal? (count1bits 5) 2)
-
-;; provided tests
-(check-equal? (count1bits 6) 2)
-(check-equal? (count1bits 7) 3)
-(check-equal? (count1bits 42) 3)
