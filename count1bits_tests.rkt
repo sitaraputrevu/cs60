@@ -2,7 +2,6 @@
 
 (require rackunit)
 (require "count1bits.rkt")
-(provide count1bits)
 
 ;; student tests
 (check-equal? (count1bits 1) 1)
