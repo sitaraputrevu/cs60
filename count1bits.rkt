@@ -8,6 +8,7 @@
 (define (count1bits N)
   (cond
       [(= N 1) 1] 
+      [(= N 0) 0] 
       [(odd? N)(+ 1 (count1bits (quotient N 2)))]
       [else (+ 0 (count1bits (quotient N 2)))]
       )
