@@ -1,23 +1,23 @@
 #lang racket
 
 (require rackunit)
-; (require "prefix_sublist.rkt")
+(require "prefix_sublist.rkt")
 
 ; student tests
 
-(check-true  (prefix? '() '(1 2 3 4))
-(check-true  (prefix? '() '())
-(check-true  (prefix? '(1 2) '(1 2 3 4))
-(check-false  (prefix? '(3 4) '(1 2 3 4))
-(check-false  (prefix? '(2 4) '(1 2 3 4))
-(check-false  (prefix? '(1 5) '(1 2 3 4))
+(check-true  (prefix? '() '(1 2 3 4)))
+(check-true  (prefix? '() '()))
+(check-true  (prefix? '(1 2) '(1 2 3 4)))
+(check-false  (prefix? '(3 4) '(1 2 3 4)))
+(check-false  (prefix? '(2 4) '(1 2 3 4)))
+(check-false  (prefix? '(1 5) '(1 2 3 4)))
 
-(check-true  (sublist? '() '(1 2 3 4))
-(check-true  (sublist? '() '())
-(check-true  (sublist? '(1 2) '(1 2 3 4))
-(check-true  (sublist? '(3 4) '(1 2 3 4))
-(check-false  (sublist? '(2 4) '(1 2 3 4))
-(check-false  (sublist? '(1 5) '(1 2 3 4))
+(check-true  (sublist? '() '(1 2 3 4)))
+(check-true  (sublist? '() '()))
+(check-true  (sublist? '(1 2) '(1 2 3 4)))
+(check-true  (sublist? '(3 4) '(1 2 3 4)))
+(check-false  (sublist? '(2 4) '(1 2 3 4)))
+(check-false  (sublist? '(1 5) '(1 2 3 4)))
 
 ; provided tests
 
