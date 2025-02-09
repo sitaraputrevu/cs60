@@ -17,5 +17,5 @@
     [(empty? S) #t] ; base case (empty list is a sublist of any list)
     [(empty? L) #f] ; if L is empty and S is not, S is not a sublist of L
     [(prefix? S L) #t] 
-    [else (sublist? (rest S) (rest L))]
+    [else (sublist? S (rest L))]
 ))
