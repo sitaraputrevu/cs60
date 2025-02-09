@@ -7,7 +7,7 @@
   (cond
     [(empty? P) #t] ; base case (empty list is a prefix of any list)
     [(empty? L) #f] ; if L is empty and P is not, P is not a prefix of L
-    [(= (first P) (first L)) (prefix? (rest P) (rest L))]
+    [(equal? (first P) (first L)) (prefix? (rest P) (rest L))]
     [#f]
 ))
 
