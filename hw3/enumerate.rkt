@@ -4,11 +4,11 @@
 
 ;; add comment
 (define (indexList num L)
-  (list num (first L)))
+  (if (empty? L)
+  '()
+  (cons (list num (first L)) (indexList (+ 1 num) (rest L)))))
 
 ;; add comment
 (define (enumerate L)
-  (if (empty? L)
-  '()
-  (cons (indexList 0 L) (enumerate (rest L))))
+  (indexList 0 L)
 )
