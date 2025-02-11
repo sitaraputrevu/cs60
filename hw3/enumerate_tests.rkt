@@ -4,7 +4,14 @@
 (require "enumerate.rkt")
 
 ; student tests
+(check-equal? (enumerate '(apple banana cherry))  
+              '((0 apple) (1 banana) (2 cherry)))  
 
+(check-equal? (enumerate '(apple))  
+              '(0 apple))  
+
+(check-equal? (enumerate '(13 #t (apple banana)))  
+              '((0 13) (1 #t) (2 (apple banana))))  
 
 ; provided tests
 (check-equal? (enumerate '(jan feb mar apr)) 
