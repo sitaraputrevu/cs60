@@ -1,14 +1,14 @@
 #lang racket
 
-(provide enumerate)
+(provide indexList enumerate)
 
-;; add comment
+;; takes in an input of a number (index) and a list and increments the index, matching each index to its element
 (define (indexList num L)
   (if (empty? L)
   '()
   (cons (list num (first L)) (indexList (+ 1 num) (rest L)))))
 
-;; add comment
+;; calls indexList with the initial index of 0
 (define (enumerate L)
   (indexList 0 L)
 )
