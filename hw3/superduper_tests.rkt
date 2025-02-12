@@ -9,9 +9,9 @@
 (check-equal? (superreverse '((cherry banana apple) (mango strawberry kiwi))
                   '((apple banana cherry) (kiwi strawberry mango))))
 (check-equal? (duperreverse '()
-                  '((kiwi strawberry mango) (apple banana cherry))))
-(check-equal? (duperreverse '((cherry banana apple) (mango strawberry kiwi))
                   '()))
+(check-equal? (duperreverse '((cherry banana apple) (mango strawberry kiwi))
+                  '((kiwi strawberry mango) (apple banana cherry))))
 
 ; provided tests
 (check-equal? (superreverse '( (1 2 3) (4 5 6 (7 8) 9 ) ))
