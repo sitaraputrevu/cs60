@@ -9,5 +9,8 @@
 ))
 
 (define (duperreverse L)
-
-)
+  (cond
+    [(empty? L) '()]
+    [(list? (first L)) (cons (duperreverse (rest L)) (duperreverse (first L)))]
+    [else (cons (duperreverse (rest L)) (first L))]
+))
