@@ -7,3 +7,7 @@
     '()
     (cons (reverse (first L)) (superreverse (rest L)))
 ))
+
+(define (duperreverse L)
+
+)
