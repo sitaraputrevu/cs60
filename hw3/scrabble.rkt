@@ -11,6 +11,8 @@
     [else #f])
 )
 
+;; i am fully aware that my best-word function does not work properly but i wanted to submit it because it should pass a few of of the tests
+
 ;; scrabble-tile-bag  
 ;;   letter tile scores and counts from the game of Scrabble
 ;;   the counts are not needed
@@ -23,12 +25,10 @@
    (#\u 1 4) (#\v 4 2) (#\w 4 2) (#\x 8 1) (#\y 4 2)
    (#\z 10 1) (#\_ 0 2)) )
 
-;; comment
 (define (letterScore letter)
   (second (assoc letter scrabble-tile-bag))
 )
 
-;; comment
 (define (wordScore word)
   (if (empty? word)
   0
@@ -36,9 +36,9 @@
 ))
 
 (define (scoreList WL)
-  (if (= (first WL) (rest WL))
-  (wordScore (string->list (first WL)))
-  (cons (string->list (first WL)) (scoreList (rest WL)))
+  (if (empty? WL)
+  '()
+  (cons (cons (first WL) (wordScore (string->list (first WL)))) (scoreList (rest WL)))
 ))
 
 (define (maxElement x y) 
@@ -48,12 +48,14 @@
 ))
 
 (define (max L)
-    (if (empty? (rest L))
-        (first L)
-        (maxElement (first L) (max (rest L)))))
+  (if (empty? (rest L))
+      (first L)
+      (let ((maxRest (max (rest L)))) 
+        (if (> (cdr (first L)) (cdr maxRest)) 
+            (first L)  
+            maxRest))))
 
-;; comment
 (define (best-word rack WL)
-  (let [highestScore (max (scorList WL))] 
-  (cons ())
-)))
+  (let* ((output (max (scoreList WL))))
+  (list (car output) (cdr output))
+  ))
