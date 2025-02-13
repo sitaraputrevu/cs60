@@ -34,18 +34,26 @@
   0
   (+ (letterScore (first word))(wordScore (rest word)))
 ))
-[let (wordList (string->list word))
 
-(define (highScore WL)
- (let [highestScore 0]
-  (if (> wordScore (first WL) highestScore)
-    
-)
+(define (scoreList WL)
+  (if (= (first WL) (rest WL))
+  (wordScore (string->list (first WL)))
+  (cons (string->list (first WL)) (scoreList (rest WL)))
 ))
+
+(define (maxElement x y) 
+  (if (> x y) 
+  x 
+  y
+))
+
+(define (max L)
+    (if (empty? (rest L))
+        (first L)
+        (maxElement (first L) (max (rest L)))))
 
 ;; comment
 (define (best-word rack WL)
-  (let [highestScore 0]
-  (if ()
-)
-))
+  (let [highestScore (max (scorList WL))] 
+  (cons ())
+)))
