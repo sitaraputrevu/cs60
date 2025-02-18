@@ -3,6 +3,15 @@
 (require rackunit)
 (require "range.rkt")
 
+; student definitions and test cases
+(define value5to15? (make-range-predicate 4 16))
+(check-equal? (value5to15? 0)  false)
+(check-equal? (value5to15? 4)  false)
+(check-equal? (value5to15? 16)  false)
+(check-equal? (value5to15? 100)  false)
+(check-equal? (value5to15? 5)  true)
+(check-equal? (value5to15? 15)  true)
+(check-equal? (value5to15? 10)  true)
 
 ; provided definitions calling make-range-predicate
 (define value1to3?   (make-range-predicate 0 4))
