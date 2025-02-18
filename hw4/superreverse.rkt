@@ -3,10 +3,8 @@
 (provide superreverse)
 
 
-;; superreverse: TODO: delete this note and complete the comment
-;;   input:  TODO: delete this note and complete the comment
-;;   output: TODO: delete this note and complete the comment
-;; Use higher-order functions (no recursion!)
+;; takes in a list L and reverses each list within it (without reversing their placement in L)
 (define (superreverse L)
-  0)
+  (map reverse L)
+)
 
