@@ -21,7 +21,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; student tests
-
+(check-equal? (lotto-winner
+               '( (aanya 2 4 16 33 42)  
+                  (bao 3 4 5 6 7) 
+                  (cruz 3 15 16 41 42) ) 
+               '(9 1 14 32 49)) ; winning tickets
+              '()) ; <- output of lotto-winner
+(check-equal? (lotto-winner
+               '( (aanya 2 4 16 33 42)  
+                  (bao 3 4 5 6 7) 
+                  (cruz 3 15 16 41 42) ) 
+               '(3 4 5 6 7)) ; winning tickets
+              '(bao 5)) ; <- output of lotto-winner
+(check-equal? (lotto-winner
+               '( (aanya 2 4 16 33 42)  
+                  (bao 3 4 5 6 7) 
+                  (cruz 3 15 16 41 42) ) 
+               '(3 4 16 41 0)) ; winning tickets
+              '(cruz 3)) ; <- output of lotto-winner
 
 ; provided tests
 (check-equal? (lotto-winner
