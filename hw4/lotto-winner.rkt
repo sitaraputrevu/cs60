@@ -25,5 +25,13 @@
 ;;   output: the name and number of matching tickets from the ticket 
 ;;           with the most matches in winning-numbers
 (define (lotto-winner list-of-tickets winning-numbers)
-  '())
+  (let* ([list-matches (map (lambda (x) (matches x winning-numbers)) list-of-tickets)]
+        [list-matches-sorted (sort list-matches >)]
+        [highest-match (first list-matches-sorted)]
+        [list-matches-names (map (lambda (x) (list (matches x winning-numbers) (first x))) list-of-tickets)])
+    (if (= highest-match 0)
+      '()
+      (reverse (assoc highest-match list-matches-names))
+)))
+
 
