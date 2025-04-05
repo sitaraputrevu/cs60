@@ -12,15 +12,21 @@
 ;; provided: an empty binary search tree
 (define emptyBST (make-empty-BST))
 
-;; TODO: make simpler trees
-
 ;; student: a binary search tree with one node
+(define tree-wOneNode
+  (make-BST-leaf 7)) 
 
 ;; student: a binary search tree with a left child
+(define tree-wLeftChild
+  (make-BST 7 (make-BST-leaf 1) (make-empty-BST))) 
 
 ;; student: a binary search tree with a right child
+(define tree-wRightChild
+  (make-BST 7 (make-empty-BST) (make-BST-leaf 8))) 
 
 ;; student: a binary search tree with two children
+(define tree-wTwoChildren 
+  (make-BST 7 (make-BST-leaf 1) (make-BST-leaf 8)))
 
 ;; provided: a big binary search tree
 (define bigBST 
