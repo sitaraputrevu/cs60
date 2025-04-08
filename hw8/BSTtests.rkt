@@ -159,18 +159,24 @@
 (check-equal? (delete 42 bigBST) bigBST_without42)
 
 ; student tests
-;; TODO: add tests for delete
 
 ; Remove X from a tree that does not contain X
+(check-equal? (delete 4 (make-BST 2 1 3)) '(2 1 3))
 
 ; Remove X from a tree where X is the only node
+(check-equal? (delete 4 (make-BST-leaf 4)) '())
 
 ; Remove X from a tree where X has no children & was in a left subtree
+(check-equal? (delete 1 tree-wTwoChildren) tree-wRightChild)
 
 ; Remove X from a tree where X has no children & was in a right subtree
+(check-equal? (delete 8 tree-wTwoChildren) tree-wLeftChild)
 
 ; Remove X from a tree where X was at the root & has only a right child
+(check-equal? (delete 7 tree-wRightChild) (make-BST-leaf 8))
 
 ; Remove X from a tree where X was at the root & has only a left child
+(check-equal? (delete 7 tree-wLeftChild) (make-BST-leaf 1))
 
 ; Remove X from a tree where X was at the root & has two children
+(check-equal? (delete 7 tree-wTwoChildren) (make-BST 8 (make-BST-leaf 1) (make-empty-BST)))
