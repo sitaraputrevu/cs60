@@ -161,10 +161,10 @@
 ; student tests
 
 ; Remove X from a tree that does not contain X
-(check-equal? (delete 4 (make-BST 2 1 3)) '(2 1 3))
+(check-equal? (delete 4 (make-BST 2 1 3)) (make-BST 2 1 3))
 
 ; Remove X from a tree where X is the only node
-(check-equal? (delete 4 (make-BST-leaf 4)) '())
+(check-equal? (delete 4 (make-BST-leaf 4)) (make-empty-BST))
 
 ; Remove X from a tree where X has no children & was in a left subtree
 (check-equal? (delete 1 tree-wTwoChildren) tree-wRightChild)
