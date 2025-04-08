@@ -90,35 +90,41 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; provided tests
-;(check-equal? (height emptyBST) -1)
-;(check-equal? (height bigBST) 3)
+(check-equal? (height emptyBST) -1)
+(check-equal? (height bigBST) 3)
 
 ; student tests
-;; TODO: add tests for height
-
+(check-equal? (height tree-wTwoChildren) 1)
+(check-equal? (height tree-wRightChild) 1)
+(check-equal? (height tree-wLeftChild) 1)
+(check-equal? (height tree-wOneNode) 0)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Part C: Test find-min
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; provided tests
-;(check-equal? (find-min bigBST) 1)
+(check-equal? (find-min bigBST) 1)
 
 ; student tests
-;; TODO: add tests for find-min
-
+(check-equal? (find-min tree-wTwoChildren) 1)
+(check-equal? (find-min tree-wRightChild) 7)
+(check-equal? (find-min tree-wLeftChild) 1)
+(check-equal? (find-min tree-wOneNode) 7)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Part D: Test in-order
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 
 ; provided tests
-;(check-equal? (in-order emptyBST) '())
-;(check-equal? (in-order bigBST) '(1 7 8 20 31 41 42 60 100))
+(check-equal? (in-order emptyBST) '())
+(check-equal? (in-order bigBST) '(1 7 8 20 31 41 42 60 100))
 
 ; student tests
-;; TODO: add tests for in-order
-
+(check-equal? (in-order tree-wTwoChildren) '(1 7 8))
+(check-equal? (in-order tree-wRightChild) '(7 8))
+(check-equal? (in-order tree-wLeftChild) '(1 7))
+(check-equal? (in-order tree-wOneNode) '(7))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Part F: Test delete
@@ -136,7 +142,7 @@
                       (make-BST-leaf 60)
                       (make-empty-BST))))
 
-;(check-equal? (delete 20 bigBST) bigBST_without20)
+(check-equal? (delete 20 bigBST) bigBST_without20)
 
 
 (define bigBST_without42
@@ -150,7 +156,7 @@
                                 (make-BST-leaf 41)))
             (make-BST-leaf 100)))
 
-;(check-equal? (delete 42 bigBST) bigBST_without42)
+(check-equal? (delete 42 bigBST) bigBST_without42)
 
 ; student tests
 ;; TODO: add tests for delete
